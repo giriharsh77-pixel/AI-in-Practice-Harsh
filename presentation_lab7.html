@@ -1,0 +1,519 @@
+<title>Aurora Policy Assistant</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: slide-based vertical scroll, each section a full-width card */
+  :root {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --fg: #1a1a1a;
+    --fg-muted: #5c5c5c;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --border: #e2e0dc;
+    --metric-good: #16a34a;
+    --metric-warn: #d97706;
+    --metric-fail: #dc2626;
+    --mono-bg: #f0eee9;
+    --slide-num: #b0ada6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121214;
+      --surface: #1c1c20;
+      --fg: #e8e6e1;
+      --fg-muted: #8a8880;
+      --accent: #60a5fa;
+      --accent-soft: #1e3a5f;
+      --border: #2a2a2e;
+      --metric-good: #4ade80;
+      --metric-warn: #fbbf24;
+      --metric-fail: #f87171;
+      --mono-bg: #22222a;
+      --slide-num: #4a4a50;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121214;
+    --surface: #1c1c20;
+    --fg: #e8e6e1;
+    --fg-muted: #8a8880;
+    --accent: #60a5fa;
+    --accent-soft: #1e3a5f;
+    --border: #2a2a2e;
+    --metric-good: #4ade80;
+    --metric-warn: #fbbf24;
+    --metric-fail: #f87171;
+    --mono-bg: #22222a;
+    --slide-num: #4a4a50;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    padding-block: 0;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-inline: 24px;
+  }
+
+  .slide {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px 44px;
+    margin-block: 24px;
+    position: relative;
+    min-height: 0;
+    page-break-inside: avoid;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--slide-num);
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    margin: 0 0 6px;
+    line-height: 1.15;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: var(--fg-muted);
+    margin: 0 0 28px;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 28px 0 12px;
+    letter-spacing: -0.01em;
+  }
+
+  h2:first-of-type { margin-top: 0; }
+
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+
+  p, li {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--fg);
+    margin: 0 0 10px;
+  }
+
+  ul { padding-left: 20px; margin: 0 0 16px; }
+  li { margin-bottom: 6px; }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .metric-card {
+    background: var(--mono-bg);
+    border-radius: 8px;
+    padding: 14px 16px;
+    min-width: 0;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .metric-value.good { color: var(--metric-good); }
+  .metric-value.warn { color: var(--metric-warn); }
+
+  .metric-note {
+    font-size: 0.72rem;
+    color: var(--fg-muted);
+    margin-top: 2px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--border);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  td:last-child, th:last-child { text-align: right; }
+
+  .pass { color: var(--metric-good); font-weight: 600; }
+  .warn-text { color: var(--metric-warn); font-weight: 600; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82em;
+    background: var(--mono-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .arch-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 16px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+
+  .arch-box {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .arch-arrow {
+    color: var(--fg-muted);
+    font-size: 1rem;
+  }
+
+  .endpoint-row {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .method {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .method.get { background: var(--metric-good); }
+
+  .path {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  .path-desc {
+    font-size: 0.82rem;
+    color: var(--fg-muted);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    .slide { padding: 28px 20px; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .footer-line {
+    text-align: center;
+    color: var(--fg-muted);
+    font-size: 0.78rem;
+    padding: 12px 0 32px;
+  }
+
+  .next-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+
+  .next-rank {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+    padding-top: 2px;
+  }
+
+  .next-body strong {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .next-body {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    min-width: 0;
+  }
+
+  .limitation-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+
+  .limitation-list li {
+    padding: 10px 14px;
+    background: var(--mono-bg);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    border-left: 3px solid var(--metric-warn);
+  }
+
+  .limitation-list li strong {
+    display: block;
+    margin-bottom: 2px;
+  }
+</style>
+
+<!-- SLIDE 1 — Title + What it does + Architecture -->
+<div class="slide">
+  <span class="slide-num">1 / 4</span>
+  <span class="tag">Lab 7 — Ship It</span>
+  <h1>Aurora Policy Assistant</h1>
+  <p class="subtitle">From RAG notebook to production service — with caching, streaming, tracing, a regression gate, and an evaluation report.</p>
+
+  <p>Aurora Policy Assistant answers questions about insurance policy documents using retrieval-augmented generation. It retrieves relevant passages from a corpus, generates a grounded answer citing specific sources, and refuses to answer when the documents lack sufficient information. Every claim is cited to a numbered source the user can expand and verify.</p>
+
+  <h2>Request Pipeline</h2>
+  <div class="arch-flow">
+    <span class="arch-box">POST /ask</span>
+    <span class="arch-arrow">&rarr;</span>
+    <span class="arch-box">Cache check</span>
+    <span class="arch-arrow">&rarr;</span>
+    <span class="arch-box">Embed query</span>
+    <span class="arch-arrow">&rarr;</span>
+    <span class="arch-box">Retrieve top-k</span>
+    <span class="arch-arrow">&rarr;</span>
+    <span class="arch-box">Generate + cite</span>
+    <span class="arch-arrow">&rarr;</span>
+    <span class="arch-box">Validate</span>
+    <span class="arch-arrow">&rarr;</span>
+    <span class="arch-box">Response</span>
+  </div>
+
+  <h2>API Endpoints</h2>
+  <div class="endpoint-row">
+    <span class="method">POST</span>
+    <span class="path">/ask</span>
+    <span class="path-desc">— Grounded answer with citations, cost, trace ID</span>
+  </div>
+  <div class="endpoint-row">
+    <span class="method">POST</span>
+    <span class="path">/ask/stream</span>
+    <span class="path-desc">— SSE streaming (generate-then-stream for citation safety)</span>
+  </div>
+  <div class="endpoint-row">
+    <span class="method get">GET</span>
+    <span class="path">/health</span>
+    <span class="path-desc">— Index size, model profile, cache stats, uptime</span>
+  </div>
+  <div class="endpoint-row">
+    <span class="method get">GET</span>
+    <span class="path">/metrics</span>
+    <span class="path-desc">— Cost, latency percentiles, cache hit rate</span>
+  </div>
+</div>
+
+<!-- SLIDE 2 — How well it works -->
+<div class="slide">
+  <span class="slide-num">2 / 4</span>
+  <span class="tag">Evaluation</span>
+  <h1>How Well It Works</h1>
+  <p class="subtitle">45 golden-set questions &middot; 40 answerable &middot; 5 unanswerable</p>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-label">Citation Validity</div>
+      <div class="metric-value good">1.000</div>
+      <div class="metric-note">gate &ge; 0.98</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Faithfulness</div>
+      <div class="metric-value good">1.000</div>
+      <div class="metric-note">gate &ge; 0.90</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Correctness</div>
+      <div class="metric-value good">0.812</div>
+      <div class="metric-note">gate &ge; 0.75</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Refusal Recall</div>
+      <div class="metric-value good">1.000</div>
+      <div class="metric-note">gate &ge; 0.80</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Refusal Precision</div>
+      <div class="metric-value warn">0.714</div>
+      <div class="metric-note">gate &ge; 0.70</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Hit Rate @5</div>
+      <div class="metric-value good">0.952</div>
+      <div class="metric-note">gate &ge; 0.85</div>
+    </div>
+  </div>
+
+  <h2>Failure Breakdown</h2>
+  <p>14 of 45 questions scored below full correctness. Root cause from Lab 5 diagnostic tree:</p>
+  <table>
+    <thead><tr><th>Failure Mode</th><th>Count</th><th>Share</th><th>Root Cause</th></tr></thead>
+    <tbody>
+      <tr><td>Ranking</td><td>13</td><td>92.9%</td><td>Gold doc in top-30 but buried below final_k=5</td></tr>
+      <tr><td>Embedding mismatch</td><td>1</td><td>7.1%</td><td>Paraphrase not close enough in embedding space</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.84rem;color:var(--fg-muted)">Worst cases: multi-hop questions requiring multiple documents (Q20–Q26), and 2 false refusals (Q23, Q44) that reduce refusal precision.</p>
+</div>
+
+<!-- SLIDE 3 — Cost, Latency, Observability -->
+<div class="slide">
+  <span class="slide-num">3 / 4</span>
+  <span class="tag">Operations</span>
+  <h1>Cost, Latency &amp; Observability</h1>
+
+  <div class="two-col">
+    <div>
+      <h2>Cost per Query</h2>
+      <table>
+        <thead><tr><th>Scope</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Per query (uncached)</td><td>~$0.003</td></tr>
+          <tr><td>Per 1,000 queries</td><td>~$3.00</td></tr>
+          <tr><td>Per year at 10k/day</td><td>~$10,950</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.82rem;color:var(--fg-muted)">Dominated by MAIN-tier generation. Gemini free tier brings this to $0 up to rate limits.</p>
+    </div>
+    <div>
+      <h2>Latency by Stage</h2>
+      <table>
+        <thead><tr><th>Stage</th><th>p95</th></tr></thead>
+        <tbody>
+          <tr><td>Embed query</td><td>~120 ms</td></tr>
+          <tr><td>Retrieve</td><td>~10 ms</td></tr>
+          <tr><td>Generate</td><td>~2,500 ms</td></tr>
+          <tr><td>Validate / repair</td><td>~1,200 ms</td></tr>
+          <tr style="font-weight:600"><td>Total</td><td>~4,000 ms</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2>Observability Stack</h2>
+  <ul>
+    <li><strong>Traces:</strong> Every request writes JSONL spans via <code>aip.tracing</code> — name, duration, cost, parent ID. Answers "why did request X take 9 seconds?"</li>
+    <li><strong>Dashboard:</strong> Streamlit page reading trace files — latency by stage, cumulative cost, error log, cache hit rate</li>
+    <li><strong>Alert:</strong> p95 latency exceeding 6,000 ms SLO triggers a red banner — action: check provider status and index health</li>
+    <li><strong>Error semantics:</strong> <code>422</code> validation, <code>429</code> budget/rate limit, <code>503</code> upstream outage with <code>Retry-After</code></li>
+  </ul>
+</div>
+
+<!-- SLIDE 4 — Limitations + Next steps -->
+<div class="slide">
+  <span class="slide-num">4 / 4</span>
+  <span class="tag">Boundaries &amp; Next Steps</span>
+  <h1>What It Is Not Safe For</h1>
+
+  <ul class="limitation-list">
+    <li><strong>Coverage decisions without human review</strong> 13 ranking failures mean the system can miss relevant policy terms. A customer relying solely on this could get an incomplete answer.</li>
+    <li><strong>Time-sensitive information</strong> Answers from a static corpus snapshot. Policy amendments after the last index build are invisible — no staleness detection.</li>
+    <li><strong>Numerical claims in RAG mode</strong> Agent mode uses <code>compute_premium</code> for arithmetic; RAG mode does not verify numbers against a calculator.</li>
+    <li><strong>Adversarial inputs</strong> Lab 6 guards blocked 71% of red-team attacks. The remaining 29% could manipulate tool calls or extract system instructions.</li>
+  </ul>
+
+  <h2>What We Would Do Next</h2>
+
+  <div class="next-item">
+    <span class="next-rank">1</span>
+    <div class="next-body">
+      <strong>Cross-encoder reranker</strong>
+      Expected +5–8% correctness. Addresses 13 of 14 failures directly — gold docs exist in top-30 but are buried below final_k. Cost: ~$0.001 additional per query (local, free).
+    </div>
+  </div>
+  <div class="next-item">
+    <span class="next-rank">2</span>
+    <div class="next-body">
+      <strong>Semantic cache with measured threshold</strong>
+      Expected 30–50% latency reduction on repeated traffic. Must sweep to find the threshold where wrong answers start — preliminary estimate ~0.92, well below what most teams assume is safe.
+    </div>
+  </div>
+  <div class="next-item">
+    <span class="next-rank">3</span>
+    <div class="next-body">
+      <strong>Feedback-driven golden set expansion</strong>
+      Thumbs-down button writes to a review queue. Confirmed failures become new golden-set entries. Without this, the golden set fossilises and the gate stops catching new failure modes.
+    </div>
+  </div>
+</div>
+
+<div class="footer-line">Harsh Giri &middot; AI in Practice &middot; Module 1 Capstone &middot; October 2026</div>

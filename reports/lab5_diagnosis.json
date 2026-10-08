@@ -1,0 +1,128 @@
+[
+  {
+    "id": "Q04",
+    "kind": "single_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "What is the waiting period for pre-existing diseases?",
+    "answer": "The waiting period for pre-existing diseases is 36 months on retail plans, under the Aurora Hospital Cash Benefit, and for conditions such as hypertension, diabetes, and cardiac conditions unless explicitly waived [2][4][5]. However, under the Aurora Senior Care plan for ages 60 and above, the waiti"
+  },
+  {
+    "id": "Q10",
+    "kind": "single_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "Who can I escalate to if Aurora rejects my claim and their internal response is unsatisfactory?",
+    "answer": "If you are not satisfied with the initial Stage 1 outcome, you can escalate to Aurora's Grievance Redressal Officer [1]. If Aurora's final response is unsatisfactory, you can approach the Insurance Ombudsman for your region, provided the dispute meets certain criteria such as a claim value under ₹50"
+  },
+  {
+    "id": "Q11",
+    "kind": "single_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "How much ambulance cover is there?",
+    "answer": "There is an ambulance cover of ₹5,000 per hospitalisation for road ambulance only, which is common to all plans [1]. This ₹5,000 limit per hospitalisation is also specified in both the Silver and Bronze plan terms [3][5]."
+  },
+  {
+    "id": "Q20",
+    "kind": "multi_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "My mother is 63 and I want to add her to my policy. Which plans allow it and what changes?",
+    "answer": "Dependent parents can be added under the Silver plan (for an extra premium), as well as the Gold and Platinum plans, but not the Bronze plan [2]. Adding her will cause the policy's premium to be calculated based on her age if she is the eldest member [3]. Additionally, on the Silver plan, having an "
+  },
+  {
+    "id": "Q21",
+    "kind": "multi_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "I am switching from another insurer. Will my 3 years of waiting period carry over if I increase my sum insured?",
+    "answer": "Waiting periods already served with your previous insurer will carry over, but only up to the sum insured of your previous policy, including any accrued no-claim bonus [1][2]. Any increase in the sum insured will be subject to fresh waiting periods on the incremental amount [1][2]."
+  },
+  {
+    "id": "Q22",
+    "kind": "multi_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "My baby was born last week. What do I need to do and by when?",
+    "answer": "To continue insurance cover for your newborn beyond the first 90 days, you must inform Aurora and add the baby to your policy as a dependent within 90 days of birth [1]. If requested within this 90-day window, adding the newborn is guaranteed-issue without medical underwriting; after this window, th"
+  },
+  {
+    "id": "Q23",
+    "kind": "multi_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "Can I get an out-patient physiotherapy session reimbursed on Bronze?",
+    "answer": "I don't have enough information in the provided sources to answer that."
+  },
+  {
+    "id": "Q24",
+    "kind": "multi_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "I had a claim last year on Silver. What happens to my accumulated no-claim bonus?",
+    "answer": "A claim reduces your accumulated no-claim bonus by 10 percentage points, rather than resetting it to zero [1]."
+  },
+  {
+    "id": "Q26",
+    "kind": "multi_hop",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "Is knee replacement covered immediately after I buy the policy?",
+    "answer": "Knee joint replacement is generally not covered immediately, as it is subject to a 24-month waiting period [2][3]. However, if the knee replacement is required following an accidental injury, it is covered from day one with no waiting period [2][3]."
+  },
+  {
+    "id": "Q29",
+    "kind": "trap_archived",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "How many days do I have to respond to a query Aurora raises on my claim?",
+    "answer": "For health reimbursement claims, you have 45 days from the date of the query to respond [1]. For motor insurance claims, you have 30 days from the date of the query to respond [4]."
+  },
+  {
+    "id": "Q32",
+    "kind": "aggregation",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "Which plans have no co-payment?",
+    "answer": "Aurora Gold has no co-payment at all ages [1]. Additionally, Aurora Silver has no co-payment when the eldest insured member is below age 60 [2]."
+  },
+  {
+    "id": "Q35",
+    "kind": "aggregation",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "List everything that is excluded relating to dental treatment.",
+    "answer": "Dental treatment and oral surgery are permanently excluded, unless necessitated by an accidental injury requiring hospitalisation [2]. Additionally, out-patient dental work is not covered by any plan [1]."
+  },
+  {
+    "id": "Q37",
+    "kind": "unanswerable",
+    "mode": 3,
+    "mode_name": "embedding_mismatch",
+    "evidence": "gold doc not in top 30 -- embedding mismatch or query phrasing",
+    "question": "Does Aurora cover treatment in Singapore, and up to what limit?",
+    "answer": "I don't have enough information in the provided sources to answer that."
+  },
+  {
+    "id": "Q44",
+    "kind": "paraphrase",
+    "mode": 4,
+    "mode_name": "ranking",
+    "evidence": "gold doc in top 30 but buried below final_k",
+    "question": "AUR-HI-SIL-2026 — what are the sum insured options?",
+    "answer": "I don't have enough information in the provided sources to answer that."
+  }
+]
