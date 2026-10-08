@@ -1,7 +1,5 @@
 # AI in Practice — Labs 1-7
 
-**Harsh Giri | Plaksha University | MS in Artificial Intelligence**
-
 Complete implementation of all 7 labs from the AI-in-Practice Module 1 course.
 
 ---
