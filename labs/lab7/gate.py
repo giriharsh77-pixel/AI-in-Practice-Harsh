@@ -7,105 +7,77 @@ from __future__ import annotations
 
 import argparse
 import json
-import statistics
 import sys
-import time
 from pathlib import Path
 
+import numpy as np
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
+from aip import cache  # noqa: E402
+from aip.retrieval import format_context  # noqa: E402
+from labs.lab3.search import load_questions  # noqa: E402
+from labs.lab4 import rag  # noqa: E402
+from labs.lab4.evaluate import build_retriever, judge_correctness, judge_faithfulness  # noqa: E402
+
 
 def measure() -> dict[str, float]:
-    """TODO D1: run the golden set and return the metric dict.
+    calls = []                                   
+    real_chat = rag.chat
 
-    Keys must match thresholds.yml.
-    """
-    from aip.chunking import markdown_chunks
-    from aip.cost import Budget
-    from aip.evals import retrieval_metrics
-    from aip.retrieval import DenseRetriever, format_context
-    from labs.lab3.search import load_corpus, load_questions
-    from labs.lab4.evaluate import judge_correctness, judge_faithfulness
-    from labs.lab4.rag import REFUSAL, answer_question
+    def spy(*args, **kwargs):
+        out = real_chat(*args, **kwargs)
+        calls.append(out["usage"])
+        return out
 
-    corpus = load_corpus()
-    chunks = [c for doc_id, text in corpus.items()
-              for c in markdown_chunks(text, doc_id, size=800)]
-    retriever = DenseRetriever(chunks)
-
-    questions = load_questions(include_unanswerable=True)
+    rag.chat = spy
     rows = []
-    latencies: list[float] = []
-    costs: list[float] = []
-    hit_rates: list[float] = []
-
-    with Budget(limit_usd=1.50, label="gate-measure") as b:
-        for q in questions:
-            t0 = time.perf_counter()
-            cost_before = b.spent_usd
-            a = answer_question(q["question"], retriever)
-            elapsed_ms = (time.perf_counter() - t0) * 1000
-            cost_after = b.spent_usd
-
-            latencies.append(elapsed_ms)
-            costs.append(cost_after - cost_before)
-
-            ctx = format_context(a.hits)
+    try:
+        retriever = build_retriever()
+        for q in load_questions(include_unanswerable=True):
+            calls.clear()
+            a = rag.answer_question(q["question"], retriever)
             unanswerable = not q["relevant_docs"] or q["kind"] == "unanswerable"
-
-            faith = judge_faithfulness(a.text, ctx)
-            correct = judge_correctness(q["question"], a.text, q["gold_answer"])
-
-            seen, ranked = set(), []
-            for h in a.hits:
-                if h.doc_id not in seen:
-                    seen.add(h.doc_id)
-                    ranked.append(h.doc_id)
-            if q["relevant_docs"]:
-                rm = retrieval_metrics(ranked, q["relevant_docs"], ks=(5,))
-                hit_rates.append(rm["hit_rate@5"])
-
             rows.append({
-                "id": q["id"],
-                "kind": q["kind"],
-                "unanswerable": unanswerable,
-                "refused": a.refused,
+                "id": q["id"], "unanswerable": unanswerable, "refused": a.refused,
                 "citations_valid": a.citations_valid,
-                "faithfulness": faith if faith >= 0 else None,
-                "correctness": correct if correct >= 0 else None,
+                "faithfulness": judge_faithfulness(a.text, format_context(a.hits)),
+                "correctness": None if unanswerable else
+                judge_correctness(q["question"], a.text, q["gold_answer"]),
+                "hit_at_5": any(h.doc_id in q["relevant_docs"] for h in a.hits[:5]),
+                "cost_usd": sum(u["cost_usd"] for u in calls),
+                "latency_ms": sum(u["latency_ms"] for u in calls),
             })
+    except cache.CacheMiss as exc:
+        raise SystemExit("GATE ERROR: a call is not in the committed cache, so the pipeline or a "
+                         "prompt changed.\nRun the gate once online with AIP_CACHE_DIR=ci_cache "
+                         f"to record it, then commit ci_cache/.\n\n{exc}") from exc
+    finally:
+        rag.chat = real_chat
 
-    valid_faith = [r for r in rows if r["faithfulness"] is not None]
-    valid_correct_ans = [r for r in rows
-                         if not r["unanswerable"] and r["correctness"] is not None]
     ans = [r for r in rows if not r["unanswerable"]]
     una = [r for r in rows if r["unanswerable"]]
     refusals = [r for r in rows if r["refused"]]
 
-    faithfulness = statistics.fmean(r["faithfulness"] for r in valid_faith) if valid_faith else 0.0
-    correctness = (statistics.fmean(r["correctness"] for r in valid_correct_ans) / 2
-                   if valid_correct_ans else 0.0)
-    citation_validity = statistics.fmean(r["citations_valid"] for r in rows)
-    refusal_recall = (sum(1 for r in una if r["refused"]) / len(una)) if una else 0.0
-    refusal_precision = ((sum(1 for r in refusals if r["unanswerable"]) / len(refusals))
-                         if refusals else 1.0)
-    hit_rate_at_5 = statistics.fmean(hit_rates) if hit_rates else 0.0
-    cost_per_query = statistics.fmean(costs) if costs else 0.0
-    p95_latency = sorted(latencies)[int(0.95 * (len(latencies) - 1))] if latencies else 0.0
+    def mean(xs):
+        return float(np.mean([x for x in xs if x is not None]))   # None = judge parse failure
 
-    return {
-        "correctness": correctness,
-        "faithfulness": faithfulness,
-        "citation_validity": citation_validity,
-        "refusal_recall": refusal_recall,
-        "refusal_precision": refusal_precision,
-        "hit_rate_at_5": hit_rate_at_5,
-        "cost_per_query_usd": cost_per_query,
-        "p95_latency_ms": p95_latency,
+    metrics = {
+        "correctness": mean(r["correctness"] for r in ans) / 2,
+        "faithfulness": mean(r["faithfulness"] for r in rows),
+        "citation_validity": mean(r["citations_valid"] for r in rows),
+        "refusal_recall": sum(r["refused"] for r in una) / len(una),
+        "refusal_precision": sum(r["unanswerable"] for r in refusals) / len(refusals) if refusals else 1.0,
+        "hit_rate_at_5": mean(r["hit_at_5"] for r in ans),
+        "cost_per_query_usd": mean(r["cost_usd"] for r in rows),
+        "p95_latency_ms": float(np.percentile([r["latency_ms"] for r in rows], 95)),
     }
+    out = ROOT / "reports/gate.json"                 
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps({"metrics": metrics, "rows": rows}, indent=2), encoding="utf-8")
+    return metrics
 
 
 def main() -> int:
