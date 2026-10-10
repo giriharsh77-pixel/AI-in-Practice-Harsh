@@ -1,6 +1,6 @@
 # Aurora Policy Assistant — Evaluation Report
 
-Sushruta, MSAI, Plaksha University. AI in Practice I, Module 1, Lab 7.
+Harsh Giri, MSAI, Plaksha University. AI in Practice I, Module 1, Lab 7.
 
 ## 1. What it does
 

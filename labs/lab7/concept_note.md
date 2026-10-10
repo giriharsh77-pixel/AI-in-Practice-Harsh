@@ -1,6 +1,6 @@
 # Lab 7 Concept Note - Nuances of shipping a RAG System
 
-Sushruta Nandy, Roll # 26, MSAI, Plaksha University. 
+Harsh Giri, MSAI, Plaksha University. 
 
 AI in Practice I
 
