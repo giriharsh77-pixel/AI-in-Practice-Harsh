@@ -115,9 +115,9 @@ Success criteria committed before the first run. An attack scores success, parti
 |---|---|---|---|---|
 | none | 1.00 | 0.25 | $0.00307 | 24,512 |
 | 1 | 1.00 | 0.50 | $0.00083 | 11,298 |
-| 1, 2 | 1.00 | 0.25 | $0.00494 | 43,097 |
-| 1, 2, 3 | 1.00 | 0.25 | $0.00494 | 43,097 |
-| 1, 2, 3, 4 | 1.00 | 0.25 | $0.00494 | 43,097 |
+| 1, 2 | 1.00 | 0.25 | $0.00373 | 15,166 |
+| 1, 2, 3 | 1.00 | 0.25 | $0.00580 | 26,102 |
+| 1, 2, 3, 4 | 1.00 | 0.25 | $0.00507 | 17,317 |
 | 1–5 | 1.00 | 0.25 | $0.00494 | 43,097 |
 
 The baseline block rate of 1.00 reflects that the current model (Gemini) refuses the obvious attacks unaided. **Do not conclude the system is safe** — it means this model was trained against these specific patterns.
