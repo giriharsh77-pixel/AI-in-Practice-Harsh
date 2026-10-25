@@ -177,8 +177,4 @@ def main() -> None:
     print(f"\nsaved -> {p}")
 
 if __name__ == "__main__":
-<<<<<<< HEAD
     main()
-=======
-    main()
->>>>>>> source/main
