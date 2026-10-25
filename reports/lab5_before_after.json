@@ -1,0 +1,386 @@
+{
+  "fixes": [
+    {
+      "name": "fix 1",
+      "version": "v1 -> v2",
+      "change": "final_k 5 -> 8 in labs/lab4/rag.py::answer_question",
+      "target": "ranking cluster (5)",
+      "prediction": "recover 2 of 5 (Q42, Q44); Q04 and Q35 stay failed; up to 2 new generation failures from extra context",
+      "outcome": "Q42 and Q44 recovered as predicted; Q04 and Q35 stayed failed; Q19 also recovered (missing chunk entered at position 8); Q03 recovered (likely run-to-run variation); Q22 regressed from partial answer to full refusal; faithfulness fell; p95 rose",
+      "per_question": [
+        {
+          "id": "Q03",
+          "kind": "single_hop",
+          "correctness": [
+            1,
+            2
+          ],
+          "faithfulness": [
+            1,
+            1
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "recovered"
+        },
+        {
+          "id": "Q19",
+          "kind": "multi_hop",
+          "correctness": [
+            1,
+            2
+          ],
+          "faithfulness": [
+            1,
+            1
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "recovered"
+        },
+        {
+          "id": "Q20",
+          "kind": "multi_hop",
+          "correctness": [
+            1,
+            1
+          ],
+          "faithfulness": [
+            1,
+            0
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "same correctness"
+        },
+        {
+          "id": "Q21",
+          "kind": "multi_hop",
+          "correctness": [
+            1,
+            1
+          ],
+          "faithfulness": [
+            0,
+            1
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "same correctness"
+        },
+        {
+          "id": "Q22",
+          "kind": "multi_hop",
+          "correctness": [
+            1,
+            0
+          ],
+          "faithfulness": [
+            1,
+            1
+          ],
+          "refused": [
+            false,
+            true
+          ],
+          "change": "regressed"
+        },
+        {
+          "id": "Q42",
+          "kind": "paraphrase",
+          "correctness": [
+            1,
+            2
+          ],
+          "faithfulness": [
+            1,
+            0
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "recovered"
+        },
+        {
+          "id": "Q44",
+          "kind": "paraphrase",
+          "correctness": [
+            0,
+            2
+          ],
+          "faithfulness": [
+            1,
+            1
+          ],
+          "refused": [
+            true,
+            false
+          ],
+          "change": "recovered"
+        },
+        {
+          "id": "Q45",
+          "kind": "paraphrase",
+          "correctness": [
+            2,
+            2
+          ],
+          "faithfulness": [
+            1,
+            0
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "same correctness"
+        }
+      ]
+    },
+    {
+      "name": "fix 2",
+      "version": "v2 -> v3",
+      "change": "exclude archived documents and other product lines (motor, life, travel) at ingest in labs/lab4/evaluate.py::build_retriever (4 of 30 docs, 235 -> 214 chunks)",
+      "target": "Q29 (archived trap) and distractors",
+      "prediction": "recover Q29, possibly Q22 and Q05 (1 to 3); Q30 and Q31 stay correct; cost and latency unchanged",
+      "outcome": "Q29's answer is now correct with no distractors but its score stayed at 1 (omits the effective-date note the gold states), so the targeted recovery did not show in the metric; Q05 recovered as predicted; Q22 improved from refusal back to a partial answer; Q30 and Q31 stayed correct; Q33 dropped 2 -> 1 on near-identical content (judge variance at the known Q33 rubric ambiguity)",
+      "per_question": [
+        {
+          "id": "Q05",
+          "kind": "single_hop",
+          "correctness": [
+            1,
+            2
+          ],
+          "faithfulness": [
+            1,
+            1
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "recovered"
+        },
+        {
+          "id": "Q22",
+          "kind": "multi_hop",
+          "correctness": [
+            0,
+            1
+          ],
+          "faithfulness": [
+            1,
+            1
+          ],
+          "refused": [
+            true,
+            false
+          ],
+          "change": "improved"
+        },
+        {
+          "id": "Q33",
+          "kind": "aggregation",
+          "correctness": [
+            2,
+            1
+          ],
+          "faithfulness": [
+            1,
+            1
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "regressed"
+        },
+        {
+          "id": "Q45",
+          "kind": "paraphrase",
+          "correctness": [
+            2,
+            2
+          ],
+          "faithfulness": [
+            0,
+            1
+          ],
+          "refused": [
+            false,
+            false
+          ],
+          "change": "same correctness"
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "correctness_normalised": {
+      "v1": 0.75,
+      "v2": 0.8,
+      "v3": 0.8125
+    },
+    "faithfulness": {
+      "v1": 0.956,
+      "v2": 0.911,
+      "v3": 0.933
+    },
+    "citation_validity": {
+      "v1": 1.0,
+      "v2": 1.0,
+      "v3": 1.0
+    },
+    "refusal_recall": {
+      "v1": "5/5",
+      "v2": "5/5",
+      "v3": "5/5"
+    },
+    "refusal_precision": {
+      "v1": "5/9",
+      "v2": "5/9",
+      "v3": "5/8"
+    },
+    "failures": {
+      "v1": 20,
+      "v2": 16,
+      "v3": 16
+    },
+    "unfaithful": {
+      "v1": [
+        "Q04",
+        "Q21"
+      ],
+      "v2": [
+        "Q04",
+        "Q20",
+        "Q42",
+        "Q45"
+      ],
+      "v3": [
+        "Q04",
+        "Q20",
+        "Q42"
+      ]
+    },
+    "wrongful_refusals": {
+      "v1": [
+        "Q23",
+        "Q25",
+        "Q43",
+        "Q44"
+      ],
+      "v2": [
+        "Q22",
+        "Q23",
+        "Q25",
+        "Q43"
+      ],
+      "v3": [
+        "Q23",
+        "Q25",
+        "Q43"
+      ]
+    }
+  },
+  "operational": {
+    "repair_rate": {
+      "v1": "20/45",
+      "v2": "17/45",
+      "v3": "14/45"
+    },
+    "cost_per_query_usd": {
+      "v1": 0.0037,
+      "v2": 0.0039,
+      "v3": 0.0036
+    },
+    "p50_latency_ms": {
+      "v1": 4194,
+      "v2": 3475,
+      "v3": 3262
+    },
+    "p95_latency_ms": {
+      "v1": 9066,
+      "v2": 16152,
+      "v3": 14542
+    },
+    "ndcg@10": {
+      "v1": 0.8527,
+      "v2": 0.8527,
+      "v3": 0.869,
+      "note": "fix 1 does not change ranking; fix 2 changes the index (235 -> 214 chunks)"
+    },
+    "recall@5": {
+      "v1": 0.9028,
+      "v2": 0.9028,
+      "v3": 0.9028
+    },
+    "hit_rate@1": {
+      "v1": 0.7857,
+      "v2": 0.7857,
+      "v3": 0.8333
+    },
+    "mrr": {
+      "v1": 0.88,
+      "v2": 0.88,
+      "v3": 0.9042
+    }
+  },
+  "correctness_by_kind": {
+    "aggregation": {
+      "v1": 0.75,
+      "v2": 0.75,
+      "v3": 0.625
+    },
+    "multi_hop": {
+      "v1": 0.55,
+      "v2": 0.55,
+      "v3": 0.6
+    },
+    "paraphrase": {
+      "v1": 0.7,
+      "v2": 1.0,
+      "v3": 1.0
+    },
+    "single_hop": {
+      "v1": 0.861,
+      "v2": 0.889,
+      "v3": 0.917
+    },
+    "trap_archived": {
+      "v1": 0.833,
+      "v2": 0.833,
+      "v3": 0.833
+    }
+  },
+  "reclassification": {
+    "v1": {
+      "generation": 11,
+      "ranking": 5,
+      "chunk_boundary": 3,
+      "missing_content": 1
+    },
+    "v2": {
+      "generation": 10,
+      "ranking": 3,
+      "chunk_boundary": 2,
+      "missing_content": 1
+    },
+    "v3": {
+      "generation": 10,
+      "ranking": 2,
+      "chunk_boundary": 3,
+      "missing_content": 1
+    }
+  }
+}

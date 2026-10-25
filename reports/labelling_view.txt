@@ -1,0 +1,1195 @@
+================================================================================
+Q23 | multi_hop
+QUESTION: Can I get an out-patient physiotherapy session reimbursed on Bronze?
+GOLD    : No. Out-patient treatment is not covered under any base plan, and the OPD rider is not available on Bronze.
+ANSWER  : The out-patient benefit (OPD rider) is not available on the Bronze plan [1]. I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: outpatient-and-wellness)
+[Out-Patient Cover, Teleconsultation, and Wellness > Out-patient benefit (OPD rider)]
+| Plan | OPD rider annual limit | Rider premium |
+|---|---|---|
+| Bronze | Not available | — |
+| Silver | ₹10,000 | 8% of base premium |
+| Gold | ₹25,000 | 7% of base premium |
+| Platinum | ₹50,000 | 6% of base premium |
+
+[2] (source: outpatient-and-wellness)
+[Out-Patient Cover, Teleconsultation, and Wellness > Teleconsultation]
+Unlimited teleconsultation with Aurora's empanelled general physicians is
+included on **all plans including Bronze**, at no extra premium and with no
+sub-limit. Specialist teleconsultation is included on Gold and Platinum;
+on Silver it draws down the OPD rider limit if the rider is held, and is
+otherwise chargeable.
+
+[3] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > Sub-limits]
+| Item | Bronze limit |
+|---|---|
+| Room rent | 1% of sum insured per day |
+| ICU charges | 2% of sum insured per day |
+| Cataract surgery | ₹25,000 per eye |
+| Knee or hip replacement | ₹1,50,000 per joint |
+| Modern treatment | 25% of sum insured |
+| Ambulance | ₹5,000 per hospitalisation |
+| Maternity | Not covered |
+
+[4] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > Choosing between plans]
+Bronze exists to satisfy a minimum-cover requirement at the lowest premium; its
+room-rent sub-limit means a private room in a metro tertiary hospital will
+usually trigger proportionate deduction. Silver is the recommended entry plan
+for a family. Gold removes room-rent and ICU sub-limits, which is the single
+
+[5] (source: maternity-benefits)
+[Maternity and Newborn Benefits]
+Maternity cover is available on Silver, Gold and Platinum. It is **not**
+available on Bronze at any sum insured.
+
+[6] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > Day-care procedures]
+150 listed day-care procedures are covered. Procedures outside the list require
+a minimum 24-hour admission to qualify.
+
+[7] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > Restoration]
+Not available on Bronze.
+
+[8] (source: plan-bronze)
+[Aurora Bronze — Plan Terms]
+Product UIN: AUR-HI-BRZ-2026. Effective 1 April 2026.
+
+Bronze is Aurora's entry-level indemnity plan. It is designed for buyers whose
+priority is the lowest possible premium and who accept meaningful sub-limits.
+
+================================================================================
+Q25 | multi_hop
+QUESTION: How much would a caesarean cost me out of pocket on Gold if the hospital bills 1,60,000?
+GOLD    : The Gold caesarean limit is Rs 1,00,000 per delivery, so approximately Rs 60,000 is out of pocket. Gold has no co-payment. Pre-natal care in the 30 days before and post-natal care for 60 days after draw down the same limit.
+ANSWER  : Under the Gold plan, the coverage limit for a Caesarean section is ₹1,00,000 per delivery [1]. I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: maternity-benefits)
+[Maternity and Newborn Benefits > Limits per delivery]
+| Plan | Normal delivery | Caesarean section |
+|---|---|---|
+| Silver | ₹40,000 | ₹60,000 |
+| Gold | ₹75,000 | ₹1,00,000 |
+| Platinum | ₹1,50,000 | ₹2,00,000 |
+
+The limit is per delivery and applies to a maximum of two deliveries in the
+lifetime of the policy, whether or not they occur in consecutive policy years.
+
+[2] (source: claims-process)
+[Filing a Claim > Worked example — proportionate deduction]
+| Head | Billed | Payable |
+|---|---|---|
+| Room rent (4 days) | ₹60,000 | ₹40,000 |
+| Surgeon and anaesthetist | ₹1,20,000 | ₹80,000 |
+| Nursing and OT | ₹45,000 | ₹30,000 |
+| Investigations | ₹30,000 | ₹20,000 |
+| Pharmacy and consumables | ₹25,000 | ₹25,000 |
+| **Total** | **₹2,80,000** | **₹1,95,000** |
+
+[3] (source: plan-gold)
+[Aurora Gold — Plan Terms > Sub-limits]
+| Item | Gold limit |
+|---|---|
+| Room rent | Single private room, no monetary cap |
+| ICU charges | No cap |
+| Cataract surgery | ₹75,000 per eye |
+| Knee or hip replacement | No sub-limit |
+| Modern treatment | Up to sum insured |
+| Ambulance (road) | ₹5,000 per hospitalisation |
+
+[4] (source: maternity-benefits)
+[Maternity and Newborn Benefits]
+Maternity cover is available on Silver, Gold and Platinum. It is **not**
+available on Bronze at any sum insured.
+
+[5] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > Choosing between plans]
+Bronze exists to satisfy a minimum-cover requirement at the lowest premium; its
+room-rent sub-limit means a private room in a metro tertiary hospital will
+usually trigger proportionate deduction. Silver is the recommended entry plan
+for a family. Gold removes room-rent and ICU sub-limits, which is the single
+
+[6] (source: claims-process)
+[Filing a Claim > Worked example — proportionate deduction]
+An insured on Silver with a ₹5,00,000 sum insured has a room-rent limit of
+2%, i.e. ₹10,000 per day. They occupy a room at ₹15,000 per day for 4 days.
+The eligibility ratio is 10,000 ÷ 15,000 = 0.667.
+
+[7] (source: maternity-benefits)
+[Maternity and Newborn Benefits > Newborn cover]
+A newborn is covered from day one of birth, within the maternity limit, for the
+first 90 days. Cover in this period includes treatment for congenital
+conditions detected after birth, up to ₹50,000 on Silver and up to the maternity
+limit on Gold and Platinum.
+
+[8] (source: plan-gold)
+[Aurora Gold — Plan Terms > Sub-limits]
+Gold removes the room-rent and ICU sub-limits entirely. You may occupy any
+single private room; only a suite or a deluxe room designated above the
+hospital's single-private-room category is excluded. Because there is no
+room-rent cap, **proportionate deduction never applies on Gold**.
+
+================================================================================
+Q27 | multi_hop
+QUESTION: What is the total maximum discount I can get on premium?
+GOLD    : Discounts are capped at 30% of base premium, but the wellness discount of up to 15% is applied after the cap and is the only discount permitted to exceed it.
+ANSWER  : Total discounts are capped at 30% of the base premium [1]. The wellness discount (up to 15% at renewal) is applied last, after the cap, and is the only discount that may exceed it [1][3][5]. Because the sources do not state the combined overall maximum discount percentage, I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: premium-and-payments)
+[Premium, Payment, and Tax > Discounts]
+Total discounts are capped at 30% of base premium. The wellness discount is
+applied last, after the cap, and is the only discount that may exceed it.
+
+[2] (source: premium-and-payments)
+[Premium, Payment, and Tax > Discounts]
+| Discount | Amount | Conditions |
+|---|---|---|
+| Family discount | 10% | Two or more members on one policy |
+| Long-term policy | 7.5% for 2 years, 10% for 3 years | Paid upfront |
+| Digital purchase | 5% | Bought on the app or portal without an intermediary |
+
+[3] (source: premium-and-payments)
+[Premium, Payment, and Tax > Discounts]
+| Wellness discount | Up to 15% at renewal | Based on wellness points, see `outpatient-and-wellness` |
+| Loyalty | 5% | Third and subsequent consecutive renewals |
+
+[4] (source: plan-silver)
+[Aurora Silver — Plan Terms > No-claim bonus]
+10% of the base sum insured is added for each claim-free year, up to a maximum
+accumulation of 50%. A claim in any year reduces the accumulated bonus by 10
+percentage points; it does not reset it to zero.
+
+[5] (source: outpatient-and-wellness)
+[Out-Patient Cover, Teleconsultation, and Wellness > Wellness programme]
+Points convert to a renewal-premium discount at 1,000 points = 5%, capped at
+15%. Points do not carry forward between policy years, and are forfeited if the
+policy lapses beyond the grace period.
+
+[6] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > No-claim bonus]
+5% per claim-free year, maximum accumulation 25%.
+
+[7] (source: premium-and-payments)
+[Premium, Payment, and Tax > Payment modes]
+Annual, half-yearly, quarterly, and monthly. Instalment options carry a loading:
+half-yearly 2%, quarterly 3%, monthly 5% over the annual premium. Instalment
+policies have a 15-day grace period rather than 30.
+
+[8] (source: premium-and-payments)
+[Premium, Payment, and Tax > Tax treatment]
+same amounts is available for a separate policy covering parents.
+
+================================================================================
+Q36 | unanswerable
+QUESTION: What is the exact premium for a 35-year-old buying Gold with a 25 lakh sum insured in Bengaluru?
+GOLD    : REFUSE. The corpus describes discounts, loading and tax treatment but contains no premium rate table.
+ANSWER  : I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: plan-gold)
+[Aurora Gold — Plan Terms > Sum insured]
+₹10,00,000 or ₹25,00,000, individual or family floater. Family floater covers
+self, spouse, up to four dependent children under 25, and up to two dependent
+parents.
+
+[2] (source: plan-silver)
+[Aurora Silver — Plan Terms > Sum insured and premium band]
+Silver is available at sum insured of ₹5,00,000 or ₹10,00,000, on an individual
+or family-floater basis. Family floater covers self, spouse, and up to three
+dependent children under 25.
+
+[3] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > Sum insured]
+₹3,00,000 or ₹5,00,000. Individual or family floater covering self, spouse and
+up to two dependent children under 25. Dependent parents cannot be added to a
+Bronze floater; they require a separate policy.
+
+[4] (source: critical-illness-rider)
+[Aurora Critical Illness Rider > Sum insured]
+₹5,00,000 to ₹50,00,000, not exceeding the base policy sum insured.
+
+[5] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > At a glance]
+| Feature | Bronze | Silver | Gold | Platinum |
+|---|---|---|---|---|
+| Sum insured options | ₹3L, ₹5L | ₹5L, ₹10L | ₹10L, ₹25L | ₹25L, ₹50L, ₹1Cr |
+| Room rent limit | 1% of SI per day | 2% of SI per day | Single private room | No limit (suite excluded) |
+| ICU limit | 2% of SI per day | 4% of SI per day | No limit | No limit |
+
+[6] (source: premium-and-payments)
+[Premium, Payment, and Tax > Tax treatment]
+Premium paid for a health insurance policy qualifies for deduction under
+Section 80D of the Income Tax Act, 1961, in the old tax regime. The deduction is
+₹25,000 for self, spouse and children where the eldest insured is below 60, and
+₹50,000 where the eldest insured is 60 or above. An additional deduction of the
+
+[7] (source: personal-accident-cover)
+[Aurora Personal Accident Cover > Sum insured]
+₹5L to ₹1Cr, subject to a maximum of 10 times annual income.
+
+[8] (source: outpatient-and-wellness)
+[Out-Patient Cover, Teleconsultation, and Wellness > Out-patient benefit (OPD rider)]
+| Plan | OPD rider annual limit | Rider premium |
+|---|---|---|
+| Bronze | Not available | — |
+| Silver | ₹10,000 | 8% of base premium |
+| Gold | ₹25,000 | 7% of base premium |
+| Platinum | ₹50,000 | 6% of base premium |
+
+================================================================================
+Q37 | unanswerable
+QUESTION: Does Aurora cover treatment in Singapore, and up to what limit?
+GOLD    : PARTIAL REFUSE. The corpus states treatment outside India is excluded except under Platinum's international emergency benefit, but the limits and conditions of that benefit are in `plan-platinum-addendum`, which is not in the corpus. The system should say the benefit exists on Platinum and that the details are not available here.
+ANSWER  : I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: topup-and-super-topup)
+[Aurora Top-Up and Super Top-Up Plans]
+Top-up products sit above a deductible and are bought alongside a base health
+policy. They are **not** the same as the indemnity plans in `plans-overview`,
+and the sub-limits and waiting periods below apply only to the top-up.
+
+[2] (source: plan-silver)
+[Aurora Silver — Plan Terms > Sub-limits]
+| Item | Silver limit |
+|---|---|
+| Room rent | 2% of sum insured per day |
+| ICU charges | 4% of sum insured per day |
+| Cataract surgery | ₹40,000 per eye |
+| Knee or hip replacement | ₹2,50,000 per joint |
+| Modern treatment (robotic surgery, oral chemotherapy, stem cell therapy) | 50% of sum insured |
+| Ambulance | ₹5,000 per hospitalisation |
+
+[3] (source: network-hospitals)
+[Network Hospitals and Cashless Access]
+Aurora's network covers 11,400 hospitals across 780 towns as of 1 April 2026.
+The authoritative list is the hospital locator in the Aurora app and on the
+portal; any printed or cached list is indicative only, because hospitals join
+and leave the network continuously.
+
+[4] (source: senior-citizen-plan)
+[Aurora Senior Care — Plan for Ages 60 and Above > Sub-limits]
+| Item | Limit |
+|---|---|
+| Room rent | 1.5% of sum insured per day |
+| ICU | 3% of sum insured per day |
+| Cataract | ₹30,000 per eye |
+| Knee or hip replacement | ₹1,75,000 per joint |
+| Modern treatment | 40% of sum insured |
+| Pre-hospitalisation | 30 days |
+| Post-hospitalisation | 60 days |
+
+[5] (source: plan-gold)
+[Aurora Gold — Plan Terms > Sub-limits]
+| Item | Gold limit |
+|---|---|
+| Room rent | Single private room, no monetary cap |
+| ICU charges | No cap |
+| Cataract surgery | ₹75,000 per eye |
+| Knee or hip replacement | No sub-limit |
+| Modern treatment | Up to sum insured |
+| Ambulance (road) | ₹5,000 per hospitalisation |
+
+[6] (source: hospital-cash-benefit)
+[Aurora Hospital Cash Benefit > Daily benefit options]
+| Option | Per day | ICU per day | Maximum days per year |
+|---|---|---|---|
+| A | ₹1,000 | ₹2,000 | 30 |
+| B | ₹2,000 | ₹4,000 | 45 |
+| C | ₹5,000 | ₹10,000 | 60 |
+
+[7] (source: hospital-cash-benefit)
+[Aurora Hospital Cash Benefit]
+A fixed daily allowance during hospitalisation, payable **in addition to** any
+indemnity claim on the same admission. It exists to cover the things the
+indemnity policy excludes — attendant costs, travel, lost income.
+
+[8] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > At a glance]
+| Co-payment | 20% above age 60 | 10% above age 60 | Nil | Nil |
+| Pre-hospitalisation cover | 30 days | 45 days | 60 days | 90 days |
+| Post-hospitalisation cover | 60 days | 90 days | 120 days | 180 days |
+| Restoration of sum insured | Not available | Once per year | Unlimited | Unlimited |
+
+================================================================================
+Q38 | unanswerable
+QUESTION: What is Aurora's claim settlement ratio for the last financial year?
+GOLD    : REFUSE. Not present in the corpus.
+ANSWER  : I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: regulatory-disclosures)
+[Regulatory Disclosures > Solvency]
+Aurora maintains a solvency ratio above the regulatory minimum of 1.50. The
+ratio as at the last audited quarter is published in the Public Disclosures
+section of the corporate website, updated quarterly.
+
+[2] (source: claims-process)
+[Filing a Claim > Settlement timelines]
+Aurora settles or rejects a complete reimbursement claim within **15 working
+days** of receiving the last required document. If Aurora raises a query, the
+clock restarts when you supply the queried document. Where Aurora exceeds the
+regulatory settlement timeline, interest is payable at the bank rate plus 2%.
+
+[3] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Action | Aurora's deadline |
+|---|---|
+| Cashless pre-authorisation, emergency | 1 hour |
+| Cashless pre-authorisation, planned | 4 working hours |
+| Cashless final approval at discharge | 3 working hours |
+| Reimbursement settlement or rejection | 15 working days from last document |
+
+[4] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Raising a query on a submitted claim | 7 working days from receipt |
+
+[5] (source: claims-process)
+[Filing a Claim]
+There are two routes. Which one is available depends on whether the hospital is
+in the Aurora network, not on the plan you hold.
+
+[6] (source: hospital-cash-benefit)
+[Aurora Hospital Cash Benefit > Claim]
+Submit the discharge summary and the indemnity claim reference. No bills are
+required, because the benefit is not linked to expenditure. Settlement within
+7 working days of the indemnity claim being settled.
+
+[7] (source: network-hospitals)
+[Network Hospitals and Cashless Access]
+Aurora's network covers 11,400 hospitals across 780 towns as of 1 April 2026.
+The authoritative list is the hospital locator in the Aurora app and on the
+portal; any printed or cached list is indicative only, because hospitals join
+and leave the network continuously.
+
+[8] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > At a glance]
+| Day-care procedures | 150 listed | 400 listed | All | All |
+| Annual health check-up | After 3 claim-free years | After 2 claim-free years | Every year | Every year |
+| No-claim bonus | 5% per year, max 25% | 10% per year, max 50% | 25% per year, max 100% | 50% per year, max 200% |
+
+================================================================================
+Q39 | unanswerable
+QUESTION: Can I use my Aurora policy to cover my dog's veterinary bills?
+GOLD    : REFUSE. The corpus covers human health insurance only and says nothing about pet cover.
+ANSWER  : I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: claims-process)
+[Filing a Claim]
+There are two routes. Which one is available depends on whether the hospital is
+in the Aurora network, not on the plan you hold.
+
+[2] (source: exclusions)
+[Permanent Exclusions]
+The following are never payable under any Aurora indemnity plan, at any sum
+insured, regardless of waiting periods served.
+
+[3] (source: critical-illness-rider)
+[Aurora Critical Illness Rider]
+A fixed-benefit rider payable as a lump sum on first diagnosis of a listed
+condition. **It does not reimburse hospital bills**; the indemnity plans in
+`plans-overview` do that, and both can be held together.
+
+[4] (source: hospital-cash-benefit)
+[Aurora Hospital Cash Benefit]
+A fixed daily allowance during hospitalisation, payable **in addition to** any
+indemnity claim on the same admission. It exists to cover the things the
+indemnity policy excludes — attendant costs, travel, lost income.
+
+[5] (source: glossary)
+[Glossary]
+**Deductible** — An absolute amount the insured bears before cover begins. Aurora's
+indemnity plans do not carry a deductible; its top-up products do.
+
+**Domiciliary hospitalisation** — Treatment at home for a condition that would
+normally require hospitalisation, where the patient could not be moved or a bed
+was unavailable.
+
+[6] (source: wellness-app-guide)
+[Aurora App — User Guide]
+How to use the app. Policy terms are not in this document.
+
+[7] (source: personal-accident-cover)
+[Aurora Personal Accident Cover]
+A fixed-benefit product. It pays a defined sum on a defined event, and does not
+reimburse expenses. **Aurora's health plans are indemnity products and work
+entirely differently** — see `glossary` for the distinction.
+
+[8] (source: topup-and-super-topup)
+[Aurora Top-Up and Super Top-Up Plans]
+Top-up products sit above a deductible and are bought alongside a base health
+policy. They are **not** the same as the indemnity plans in `plans-overview`,
+and the sub-limits and waiting periods below apply only to the top-up.
+
+================================================================================
+Q40 | unanswerable
+QUESTION: What is the phone number for the Aurora helpline?
+GOLD    : REFUSE on the number. The corpus mentions a 24x7 helpline and the email grievance@aurorahealth.example but gives no phone number.
+ANSWER  : I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: wellness-app-guide)
+[Aurora App — User Guide > Support]
+In-app chat 24×7, or the helpline number on your policy schedule.
+
+[2] (source: wellness-app-guide)
+[Aurora App — User Guide]
+How to use the app. Policy terms are not in this document.
+
+[3] (source: grievance-redressal)
+[Grievance Redressal and Claim Disputes > Stage 1 — Aurora customer service]
+Raise a grievance in the app, on the portal, by email to
+grievance@aurorahealth.example, or on the 24×7 helpline. Aurora acknowledges
+within **3 working days** and resolves within **15 days** of receipt.
+
+Quote your policy number and, for a claim dispute, the claim reference number.
+
+[4] (source: claims-process)
+[Filing a Claim]
+There are two routes. Which one is available depends on whether the hospital is
+in the Aurora network, not on the plan you hold.
+
+[5] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Raising a query on a submitted claim | 7 working days from receipt |
+
+[6] (source: network-hospitals)
+[Network Hospitals and Cashless Access]
+Aurora's network covers 11,400 hospitals across 780 towns as of 1 April 2026.
+The authoritative list is the hospital locator in the Aurora app and on the
+portal; any printed or cached list is indicative only, because hospitals join
+and leave the network continuously.
+
+[7] (source: regulatory-disclosures)
+[Regulatory Disclosures > Solvency]
+Aurora maintains a solvency ratio above the regulatory minimum of 1.50. The
+ratio as at the last audited quarter is published in the Public Disclosures
+section of the corporate website, updated quarterly.
+
+[8] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Action | Aurora's deadline |
+|---|---|
+| Cashless pre-authorisation, emergency | 1 hour |
+| Cashless pre-authorisation, planned | 4 working hours |
+| Cashless final approval at discharge | 3 working hours |
+| Reimbursement settlement or rejection | 15 working days from last document |
+
+================================================================================
+Q43 | paraphrase
+QUESTION: My dad smoked for years and quit through your programme. Does that get me anything?
+GOLD    : Completing the quit-tobacco programme earns 200 wellness points. Points convert at 1,000 points = 5% renewal discount, capped at 15%.
+ANSWER  : Completing a quit-tobacco programme earns 200 points per year under the wellness programme [2]. These points convert to a renewal-premium discount at a rate of 1,000 points for a 5% discount, capped at 15% [3]. I don't have enough information in the provided sources to answer that.
+CONTEXT :
+[1] (source: dependents-and-family-floater)
+[Dependents and the Family Floater > Adding and removing members]
+  rest of the policy year at no change in premium. If the deceased was the
+  proposer, the eldest remaining adult becomes the proposer on request.
+- **Divorce**: the former spouse must be moved to a separate policy at the next
+  renewal; waiting periods served carry over.
+
+[2] (source: outpatient-and-wellness)
+[Out-Patient Cover, Teleconsultation, and Wellness > Wellness programme]
+| Activity | Points per year (max) |
+|---|---|
+| Verified 10,000 steps/day, per qualifying day | 1 (max 250) |
+| Annual health check-up completed | 150 |
+| Preventive screening appropriate to age and sex | 100 |
+| Quit-tobacco programme completed | 200 |
+| Health risk assessment completed at renewal | 50 |
+
+[3] (source: outpatient-and-wellness)
+[Out-Patient Cover, Teleconsultation, and Wellness > Wellness programme]
+Points convert to a renewal-premium discount at 1,000 points = 5%, capped at
+15%. Points do not carry forward between policy years, and are forfeited if the
+policy lapses beyond the grace period.
+
+[4] (source: dependents-and-family-floater)
+[Dependents and the Family Floater > Who can be covered]
+| Siblings, grandparents | No | No | No | No |
+
+[5] (source: premium-and-payments)
+[Premium, Payment, and Tax > Tax treatment]
+same amounts is available for a separate policy covering parents.
+
+[6] (source: dependents-and-family-floater)
+[Dependents and the Family Floater > Who can be covered]
+A child ceases to be a dependent at 25, or earlier on marriage or on becoming
+financially independent. Aurora offers guaranteed continuation into an
+individual policy at that point, with all waiting periods carried over, provided
+the request is made within 90 days.
+
+[7] (source: dependents-and-family-floater)
+[Dependents and the Family Floater > Adding and removing members]
+- **Marriage**: a spouse may be added mid-term, within 60 days of the marriage,
+  on payment of pro-rata premium. Fresh waiting periods apply to the spouse.
+- **Birth or adoption**: see `maternity-benefits` for the 90-day window.
+- **Death of a member**: the policy continues for the remaining members for the
+
+[8] (source: dependents-and-family-floater)
+[Dependents and the Family Floater > Who can be covered]
+| Relationship | Bronze | Silver | Gold | Platinum |
+|---|---|---|---|---|
+| Self and spouse | Yes | Yes | Yes | Yes |
+| Dependent children under 25 | Up to 2 | Up to 3 | Up to 4 | Up to 4 |
+| Dependent parents | No | Yes, at extra premium | Yes | Yes |
+| Dependent parents-in-law | No | No | Yes | Yes |
+
+================================================================================
+Q01 | single_hop
+QUESTION: How many days do I have to submit a reimbursement claim after discharge?
+GOLD    : 30 days from the date of discharge.
+ANSWER  : For retail plans, you must submit a main reimbursement claim within 30 days of discharge [1][2]. However, for group corporate plans, the reimbursement submission window is 60 days from discharge [4].
+CONTEXT :
+[1] (source: claims-process)
+[Filing a Claim > Route 2 — Reimbursement (any hospital)]
+3. Submit the claim within **30 days of discharge**.
+4. Submit post-hospitalisation bills within **15 days** of the end of the
+   post-hospitalisation period applicable to your plan.
+
+[2] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Submission]
+| Document set | Deadline |
+|---|---|
+| Main reimbursement claim | 30 days from date of discharge |
+| Pre-hospitalisation bills | With the main claim |
+| Post-hospitalisation bills | 15 days after the end of the post-hospitalisation window |
+| Response to an Aurora query | 45 days from the date of the query |
+
+[3] (source: claims-process)
+[Filing a Claim > Documents required for reimbursement]
+- Completed and signed claim form (Part A by you, Part B by the hospital)
+- Original discharge summary
+- Original itemised hospital bill and payment receipt
+- All investigation reports and their prescriptions
+- Pharmacy bills with the corresponding prescriptions
+- Implant sticker and invoice, where an implant was used
+
+[4] (source: group-corporate-plans)
+[Aurora Group Health — Corporate Plan Comparison > Claims]
+Group claims follow the same cashless and reimbursement routes as retail, but
+the reimbursement submission window is 60 days from discharge rather than 30,
+and the employer's HR desk is the first point of contact.
+
+[5] (source: claims-process)
+[Filing a Claim > Route 2 — Reimbursement (any hospital)]
+Use this at non-network hospitals, or where cashless was denied.
+
+[6] (source: hospital-cash-benefit)
+[Aurora Hospital Cash Benefit > Claim]
+Submit the discharge summary and the indemnity claim reference. No bills are
+required, because the benefit is not linked to expenditure. Settlement within
+7 working days of the indemnity claim being settled.
+
+[7] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Notification]
+| Emergency admission, reimbursement | Insured | Within 48 hours of admission |
+| Death during hospitalisation | Insured's representative | Within 24 hours |
+
+[8] (source: claims-process)
+[Filing a Claim > Route 2 — Reimbursement (any hospital)]
+1. Notify Aurora within **48 hours** of an emergency admission, or **72 hours
+   before** a planned admission. Notification is by app, portal, or the 24×7
+   helpline. Failure to notify does not by itself void the claim but must be
+   explained.
+2. Pay the hospital yourself and collect the complete document set.
+
+================================================================================
+Q04 | single_hop
+QUESTION: What is the waiting period for pre-existing diseases?
+GOLD    : 36 months of continuous coverage. A rider can reduce it to 24 or 12 months if bought at inception or first renewal.
+ANSWER  : For retail plans as well as top-up and super top-up plans, the waiting period for pre-existing diseases is 36 months unless explicitly waived in writing [3][5][7]. However, under the Aurora Senior Care plan for ages 60 and above, the pre-existing disease waiting period is 24 months [5].
+CONTEXT :
+[1] (source: pre-existing-conditions)
+[Waiting Periods and Pre-Existing Diseases]
+A waiting period is a stretch of continuous coverage that must elapse before a
+particular kind of claim becomes payable. Waiting periods run from the date of
+first policy commencement, not from each renewal, provided coverage has been
+continuous without a break of more than 30 days.
+
+[2] (source: exclusions)
+[Permanent Exclusions > Two things people expect to be excluded but are not]
+  pre-existing disease rules if diagnosed before the policy start.
+
+[3] (source: pre-existing-conditions)
+[Waiting Periods and Pre-Existing Diseases > What counts as pre-existing]
+Hypertension, diabetes mellitus, and cardiac conditions declared at proposal
+stage are treated as pre-existing and carry the 36-month waiting period unless
+Aurora explicitly waives it in writing on the policy schedule.
+
+[4] (source: pre-existing-conditions)
+[Waiting Periods and Pre-Existing Diseases > Schedule of waiting periods]
+| Category | Waiting period | Applies to |
+|---|---|---|
+| Initial waiting period | 30 days | Any illness other than accident |
+| Accidental injury | Nil | From day one |
+| Specified illnesses and procedures | 24 months | See list below |
+
+[5] (source: senior-citizen-plan)
+[Aurora Senior Care — Plan for Ages 60 and Above > Waiting periods]
+| Category | Waiting period |
+|---|---|
+| Initial | 30 days |
+| Specified illnesses | 24 months |
+| Pre-existing disease | **24 months** (shorter than the 36 months on retail plans) |
+
+[6] (source: pre-existing-conditions)
+[Waiting Periods and Pre-Existing Diseases > What counts as pre-existing]
+A condition is pre-existing if, in the 48 months before the policy start date,
+it was diagnosed by a registered practitioner, or the insured received medical
+advice or treatment for it, or its signs or symptoms were present and known to
+the insured.
+
+[7] (source: topup-and-super-topup)
+[Aurora Top-Up and Super Top-Up Plans > Waiting periods]
+| Category | Waiting period |
+|---|---|
+| Initial | 30 days |
+| Specified illnesses | 24 months |
+| Pre-existing disease | 36 months |
+| Maternity | Not covered on any top-up variant |
+
+[8] (source: pre-existing-conditions)
+[Waiting Periods and Pre-Existing Diseases > Portability]
+Waiting periods already served with a previous Indian insurer carry over on
+portability, up to the sum insured of the previous policy. The excess sum
+insured is subject to fresh waiting periods. See `policy-renewal-and-portability`.
+
+================================================================================
+Q07 | single_hop
+QUESTION: What is the no-claim bonus on Gold?
+GOLD    : 25% of base sum insured per claim-free year, accumulating to a maximum of 100%. A claim stops accumulation for that year but does not reduce the bonus.
+ANSWER  : For the Aurora Gold plan, the no-claim bonus is 25% of the base sum insured per claim-free year, accumulating up to a maximum of 100% [1][5]. The accumulated bonus is not reduced if a claim is made; it simply stops accumulating for that year only [1].
+CONTEXT :
+[1] (source: plan-gold)
+[Aurora Gold — Plan Terms > No-claim bonus]
+25% of base sum insured per claim-free year, accumulating to a maximum of 100%.
+The bonus is not reduced by a claim; it stops accumulating for that year only.
+
+[2] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > No-claim bonus]
+5% per claim-free year, maximum accumulation 25%.
+
+[3] (source: plan-silver)
+[Aurora Silver — Plan Terms > No-claim bonus]
+10% of the base sum insured is added for each claim-free year, up to a maximum
+accumulation of 50%. A claim in any year reduces the accumulated bonus by 10
+percentage points; it does not reset it to zero.
+
+[4] (source: plan-gold)
+[Aurora Gold — Plan Terms > Co-payment]
+Nil at all ages.
+
+[5] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > At a glance]
+| Day-care procedures | 150 listed | 400 listed | All | All |
+| Annual health check-up | After 3 claim-free years | After 2 claim-free years | Every year | Every year |
+| No-claim bonus | 5% per year, max 25% | 10% per year, max 50% | 25% per year, max 100% | 50% per year, max 200% |
+
+[6] (source: policy-renewal-and-portability)
+[Renewal, Grace Period, and Portability > Grace period]
+Cover is **not** in force during the grace period. A claim for an admission that
+occurs inside the grace period, before the renewal premium is received, is not
+payable. What the grace period preserves is *continuity*: renew inside it and
+your waiting periods and no-claim bonus carry forward unbroken.
+
+[7] (source: critical-illness-rider)
+[Aurora Critical Illness Rider > After a claim]
+The rider terminates on payment of the full sum insured. The base indemnity
+policy continues unaffected, including its no-claim bonus, because a critical
+illness payout is not an indemnity claim.
+
+[8] (source: glossary)
+[Glossary]
+**Cumulative bonus / No-claim bonus** — An increase in sum insured granted for a
+claim-free year, at no additional premium.
+
+**Day-care procedure** — A procedure that requires less than 24 hours of
+hospitalisation because of technological advance, and is therefore payable
+despite the general 24-hour admission requirement. Out-patient treatment is not
+a day-care procedure.
+
+================================================================================
+Q10 | single_hop
+QUESTION: Who can I escalate to if Aurora rejects my claim and their internal response is unsatisfactory?
+GOLD    : Escalate to Aurora's Grievance Redressal Officer (14-day response), then to the Insurance Ombudsman for your region within 1 year of the final rejection.
+ANSWER  : If you are not satisfied with the Stage 1 outcome, you can escalate the matter to Aurora's Grievance Redressal Officer [2]. If Aurora's final response is unsatisfactory, or if Aurora has not responded within 30 days of the original complaint, you may approach the Insurance Ombudsman for your region [1].
+CONTEXT :
+[1] (source: grievance-redressal)
+[Grievance Redressal and Claim Disputes > Stage 3 — Insurance Ombudsman]
+If Aurora's final response is unsatisfactory, or Aurora has not responded within
+30 days of the original complaint, you may approach the Insurance Ombudsman for
+your region.
+
+[2] (source: grievance-redressal)
+[Grievance Redressal and Claim Disputes > Stage 2 — Grievance Redressal Officer]
+If you are not satisfied with the Stage 1 outcome, or receive no response within
+15 days, escalate to Aurora's Grievance Redressal Officer. The GRO responds
+within **14 days**. The GRO's contact details are printed on the policy schedule
+and published on the portal.
+
+[3] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Raising a query on a submitted claim | 7 working days from receipt |
+
+[4] (source: claims-process)
+[Filing a Claim]
+There are two routes. Which one is available depends on whether the hospital is
+in the Aurora network, not on the plan you hold.
+
+[5] (source: wellness-app-guide)
+[Aurora App — User Guide > Support]
+In-app chat 24×7, or the helpline number on your policy schedule.
+
+[6] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Submission]
+If the response to a query is not received within 45 days, Aurora closes the
+claim. A closed claim can be reopened once, within 6 months, on written request.
+
+[7] (source: grievance-redressal)
+[Grievance Redressal and Claim Disputes > Stage 1 — Aurora customer service]
+Raise a grievance in the app, on the portal, by email to
+grievance@aurorahealth.example, or on the 24×7 helpline. Aurora acknowledges
+within **3 working days** and resolves within **15 days** of receipt.
+
+Quote your policy number and, for a claim dispute, the claim reference number.
+
+[8] (source: claims-process)
+[Filing a Claim > Settlement timelines]
+Aurora settles or rejects a complete reimbursement claim within **15 working
+days** of receiving the last required document. If Aurora raises a query, the
+clock restarts when you supply the queried document. Where Aurora exceeds the
+regulatory settlement timeline, interest is payable at the bank rate plus 2%.
+
+================================================================================
+Q13 | single_hop
+QUESTION: What is the free-look period?
+GOLD    : 15 days from receipt of the policy document, or 30 days if sold through distance marketing.
+ANSWER  : The free-look period is the window in which a new policy can be returned for a refund [2]. During this period, a new policyholder may cancel within 15 days of receiving the policy document, or within 30 days if sold through distance marketing, to receive a refund of premium less proportionate risk premium for the cover period, medical examination costs, and stamp duty [1].
+CONTEXT :
+[1] (source: policy-renewal-and-portability)
+[Renewal, Grace Period, and Portability > Free-look period]
+A new policyholder may cancel within **15 days** of receiving the policy
+document (**30 days** if the policy was sold through distance marketing) and
+receive a refund of premium less proportionate risk premium for the period of
+cover, medical examination costs, and stamp duty.
+
+[2] (source: glossary)
+[Glossary]
+**Free-look period** — The window in which a new policy can be returned for a
+refund.
+
+**Grace period** — The window after the due date in which a renewal premium may
+be paid without losing continuity. Cover does not operate during it.
+
+**Indemnity** — Reimbursement of actual expenses incurred, up to a limit, as
+opposed to a fixed payout on the occurrence of an event.
+
+[3] (source: regulatory-disclosures)
+[Regulatory Disclosures > Free-look and cancellation rights]
+Statutory rights under the applicable regulations, reproduced in
+`policy-renewal-and-portability`.
+
+[4] (source: premium-and-payments)
+[Premium, Payment, and Tax > Refunds on cancellation]
+Cancellation by the insured after the free-look period attracts a short-period
+scale: 75% refunded if cancelled within 1 month, 50% within 3 months, 25% within
+6 months, and nil thereafter. No refund is payable if a claim has been made in
+the policy year.
+
+[5] (source: policy-renewal-and-portability)
+[Renewal, Grace Period, and Portability > Migration]
+Migration is moving between Aurora's own products — for example Silver to Gold.
+The rules are the same as portability with respect to waiting-period credit, but
+no 45-day notice is required; migration can be requested at any renewal.
+
+[6] (source: policy-renewal-and-portability)
+[Renewal, Grace Period, and Portability > Grace period]
+The grace period is **30 days** from the renewal due date for annual policies
+and **15 days** for policies paid in instalments.
+
+[7] (source: pre-existing-conditions)
+[Waiting Periods and Pre-Existing Diseases]
+A waiting period is a stretch of continuous coverage that must elapse before a
+particular kind of claim becomes payable. Waiting periods run from the date of
+first policy commencement, not from each renewal, provided coverage has been
+continuous without a break of more than 30 days.
+
+[8] (source: policy-renewal-and-portability)
+[Renewal, Grace Period, and Portability > Grace period]
+Cover is **not** in force during the grace period. A claim for an admission that
+occurs inside the grace period, before the renewal premium is received, is not
+payable. What the grace period preserves is *continuity*: renew inside it and
+your waiting periods and no-claim bonus carry forward unbroken.
+
+================================================================================
+Q16 | single_hop
+QUESTION: Within how many hours must a hospital notify Aurora of an emergency admission for cashless?
+GOLD    : Within 24 hours of admission.
+ANSWER  : For an emergency admission under cashless, the hospital must notify Aurora within 24 hours of admission [1][5]. Aurora responds to emergency pre-authorisation requests within 1 hour [1][2].
+CONTEXT :
+[1] (source: claims-process)
+[Filing a Claim > Route 1 — Cashless (network hospitals only)]
+4. For an **emergency** admission, the hospital must notify Aurora within
+   **24 hours** of admission. Aurora responds within **1 hour** for emergencies.
+5. Aurora settles the approved amount directly with the hospital. You pay only
+   the non-payable items, any co-payment, and anything above the sum insured.
+
+[2] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Action | Aurora's deadline |
+|---|---|
+| Cashless pre-authorisation, emergency | 1 hour |
+| Cashless pre-authorisation, planned | 4 working hours |
+| Cashless final approval at discharge | 3 working hours |
+| Reimbursement settlement or rejection | 15 working days from last document |
+
+[3] (source: claims-process)
+[Filing a Claim > Route 1 — Cashless (network hospitals only)]
+1. Present your Aurora health card and a government photo ID at the hospital
+   insurance desk.
+2. The hospital submits a pre-authorisation request to Aurora.
+3. For a **planned** admission, submit the request at least **72 hours** before
+   admission. Aurora responds within **4 working hours** of receiving a complete
+   request.
+
+[4] (source: claims-process)
+[Filing a Claim > Route 2 — Reimbursement (any hospital)]
+1. Notify Aurora within **48 hours** of an emergency admission, or **72 hours
+   before** a planned admission. Notification is by app, portal, or the 24×7
+   helpline. Failure to notify does not by itself void the claim but must be
+   explained.
+2. Pay the hospital yourself and collect the complete document set.
+
+[5] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Notification]
+| Situation | Who notifies | Deadline |
+|---|---|---|
+| Planned admission, cashless | Hospital | 72 hours before admission |
+| Emergency admission, cashless | Hospital | Within 24 hours of admission |
+| Planned admission, reimbursement | Insured | 72 hours before admission |
+
+[6] (source: network-hospitals)
+[Network Hospitals and Cashless Access]
+Aurora's network covers 11,400 hospitals across 780 towns as of 1 April 2026.
+The authoritative list is the hospital locator in the Aurora app and on the
+portal; any printed or cached list is indicative only, because hospitals join
+and leave the network continuously.
+
+[7] (source: hospital-cash-benefit)
+[Aurora Hospital Cash Benefit > Conditions]
+- A minimum continuous hospitalisation of **48 hours** is required. A 30-hour
+  admission pays nothing, even where the indemnity claim is payable.
+- The first day of each admission is a deductible day and is not paid.
+- Maximum 15 consecutive days for any single admission on Options A and B.
+
+[8] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Notification]
+| Emergency admission, reimbursement | Insured | Within 48 hours of admission |
+| Death during hospitalisation | Insured's representative | Within 24 hours |
+
+================================================================================
+Q19 | multi_hop
+QUESTION: I am on Silver with a 5 lakh sum insured and took a room at Rs 15,000 per day. Will everything be paid?
+GOLD    : No. The Silver room-rent limit is 2% of 5,00,000 = Rs 10,000/day, so an eligibility ratio of 0.667 is applied by proportionate deduction to all room-linked charges (room, surgeon, anaesthetist, nursing, OT, investigations). Pharmacy and consumables are not reduced.
+ANSWER  : No, not everything will be paid because the room-rent limit for a ₹5,00,000 sum insured on the Silver plan is 2%, or ₹10,000 per day [1][2]. Because your room rate of ₹15,000 per day exceeds this limit, an eligibility ratio of 0.667 will result in proportionate deductions on all expenses tied to the room category [1][8]. While pharmacy and consumables are not proportionately reduced, the remaining deducted amounts must be paid out of pocket [5][8].
+CONTEXT :
+[1] (source: claims-process)
+[Filing a Claim > Worked example — proportionate deduction]
+An insured on Silver with a ₹5,00,000 sum insured has a room-rent limit of
+2%, i.e. ₹10,000 per day. They occupy a room at ₹15,000 per day for 4 days.
+The eligibility ratio is 10,000 ÷ 15,000 = 0.667.
+
+[2] (source: plan-silver)
+[Aurora Silver — Plan Terms > Sub-limits]
+| Item | Silver limit |
+|---|---|
+| Room rent | 2% of sum insured per day |
+| ICU charges | 4% of sum insured per day |
+| Cataract surgery | ₹40,000 per eye |
+| Knee or hip replacement | ₹2,50,000 per joint |
+| Modern treatment (robotic surgery, oral chemotherapy, stem cell therapy) | 50% of sum insured |
+| Ambulance | ₹5,000 per hospitalisation |
+
+[3] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > Sub-limits]
+On a ₹3,00,000 sum insured the room-rent limit is ₹3,000 per day, which is
+below the single-private-room tariff at most metropolitan tertiary hospitals.
+Proportionate deduction will therefore apply to most Bronze claims in those
+hospitals. Buyers should read the worked example in `claims-process` before
+choosing Bronze.
+
+[4] (source: plan-silver)
+[Aurora Silver — Plan Terms > Sum insured and premium band]
+Silver is available at sum insured of ₹5,00,000 or ₹10,00,000, on an individual
+or family-floater basis. Family floater covers self, spouse, and up to three
+dependent children under 25.
+
+[5] (source: claims-process)
+[Filing a Claim > Worked example — proportionate deduction]
+| Head | Billed | Payable |
+|---|---|---|
+| Room rent (4 days) | ₹60,000 | ₹40,000 |
+| Surgeon and anaesthetist | ₹1,20,000 | ₹80,000 |
+| Nursing and OT | ₹45,000 | ₹30,000 |
+| Investigations | ₹30,000 | ₹20,000 |
+| Pharmacy and consumables | ₹25,000 | ₹25,000 |
+| **Total** | **₹2,80,000** | **₹1,95,000** |
+
+[6] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > At a glance]
+| Feature | Bronze | Silver | Gold | Platinum |
+|---|---|---|---|---|
+| Sum insured options | ₹3L, ₹5L | ₹5L, ₹10L | ₹10L, ₹25L | ₹25L, ₹50L, ₹1Cr |
+| Room rent limit | 1% of SI per day | 2% of SI per day | Single private room | No limit (suite excluded) |
+| ICU limit | 2% of SI per day | 4% of SI per day | No limit | No limit |
+
+[7] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > Sub-limits]
+| Item | Bronze limit |
+|---|---|
+| Room rent | 1% of sum insured per day |
+| ICU charges | 2% of sum insured per day |
+| Cataract surgery | ₹25,000 per eye |
+| Knee or hip replacement | ₹1,50,000 per joint |
+| Modern treatment | 25% of sum insured |
+| Ambulance | ₹5,000 per hospitalisation |
+| Maternity | Not covered |
+
+[8] (source: claims-process)
+[Filing a Claim > Worked example — proportionate deduction]
+Pharmacy and consumables are not proportionately reduced. Everything tied to
+the room category is. The insured pays ₹85,000 out of pocket on a claim that
+was well within the sum insured — which is the point of the example.
+
+================================================================================
+Q22 | multi_hop
+QUESTION: My baby was born last week. What do I need to do and by when?
+GOLD    : The newborn is covered from day one within the maternity limit for the first 90 days. To continue cover beyond that, inform Aurora and add the child as a dependent within 90 days of birth, which is guaranteed-issue with no medical underwriting. After 90 days the child is treated as a fresh applicant.
+ANSWER  : To continue cover beyond the initial 90 days, you must inform Aurora within 90 days of birth to add the newborn to your policy as a dependent [1]. If requested within that 90-day window, adding the newborn is guaranteed-issue with no medical underwriting [1]. If you are filing a reimbursement claim for hospitalisation, the main claim must be submitted within 30 days of discharge [3][7].
+CONTEXT :
+[1] (source: maternity-benefits)
+[Maternity and Newborn Benefits > Newborn cover]
+To continue cover beyond 90 days, the newborn must be added to the policy as a
+dependent. Aurora must be informed within 90 days of birth. Adding the newborn
+is guaranteed-issue — no medical underwriting — if requested within that window;
+after it, the child is treated as a fresh applicant.
+
+[2] (source: maternity-benefits)
+[Maternity and Newborn Benefits > Newborn cover]
+A newborn is covered from day one of birth, within the maternity limit, for the
+first 90 days. Cover in this period includes treatment for congenital
+conditions detected after birth, up to ₹50,000 on Silver and up to the maternity
+limit on Gold and Platinum.
+
+[3] (source: claims-process)
+[Filing a Claim > Route 2 — Reimbursement (any hospital)]
+3. Submit the claim within **30 days of discharge**.
+4. Submit post-hospitalisation bills within **15 days** of the end of the
+   post-hospitalisation period applicable to your plan.
+
+[4] (source: maternity-benefits)
+[Maternity and Newborn Benefits]
+Maternity cover is available on Silver, Gold and Platinum. It is **not**
+available on Bronze at any sum insured.
+
+[5] (source: maternity-benefits)
+[Maternity and Newborn Benefits > What is included in the maternity limit]
+Pre-natal consultations and investigations in the 30 days before delivery;
+delivery charges including the obstetrician and anaesthetist; hospital room and
+nursing for the mother; and post-natal care for 60 days after delivery. All of
+these draw down the same per-delivery limit; they are not separate benefits.
+
+[6] (source: health-faq-general)
+[Frequently Asked Questions]
+**Is maternity covered?**
+On some plans, after a waiting period. See `maternity-benefits`.
+
+**What if you reject my claim?**
+There is a three-stage grievance process ending with the Ombudsman. See
+`grievance-redressal`.
+
+[7] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Submission]
+| Document set | Deadline |
+|---|---|
+| Main reimbursement claim | 30 days from date of discharge |
+| Pre-hospitalisation bills | With the main claim |
+| Post-hospitalisation bills | 15 days after the end of the post-hospitalisation window |
+| Response to an Aurora query | 45 days from the date of the query |
+
+[8] (source: health-faq-general)
+[Frequently Asked Questions]
+A customer-facing summary. Where this FAQ and a plan document disagree, the
+plan document governs. Several answers here are deliberately approximate.
+
+**How soon can I claim after buying the policy?**
+After 30 days for illness, immediately for accident. Some conditions wait longer.
+
+================================================================================
+Q28 | multi_hop
+QUESTION: I want cashless at a hospital that turns out to be an excluded provider. What are my options?
+GOLD    : Cashless is not available at an excluded provider. The claim is payable on reimbursement only if the admission was a genuine emergency with no reachable alternative facility, and pre-approval is required.
+ANSWER  : Cashless access is not available at an excluded provider, as this is a specific reason for cashless denial [2][3]. Your only option is to file for reimbursement, though the sources conflict on the conditions: one source states that pre-approval is required [3], while another states it is payable only if the admission was a genuine emergency and no alternative facility was reachable [1].
+CONTEXT :
+[1] (source: network-hospitals)
+[Network Hospitals and Cashless Access > Network tiers]
+The excluded provider list is published quarterly on the portal. A claim from an
+excluded provider is payable on reimbursement only if the admission was a
+genuine emergency and no alternative facility was reachable.
+
+[2] (source: network-hospitals)
+[Network Hospitals and Cashless Access > When cashless is denied]
+1. The information supplied is insufficient to establish medical necessity.
+2. The condition appears to fall within an unexpired waiting period.
+3. The policy is not in force on the date of admission.
+4. The hospital is an excluded provider.
+
+[3] (source: network-hospitals)
+[Network Hospitals and Cashless Access > Network tiers]
+| Excluded provider | Hospitals excluded for documented fraud or persistent over-billing | No — reimbursement only, and pre-approval required |
+
+[4] (source: network-hospitals)
+[Network Hospitals and Cashless Access > When cashless is denied]
+Cashless can be denied at pre-authorisation for four reasons, and denial of
+cashless is **not** a rejection of the claim:
+
+[5] (source: claims-process)
+[Filing a Claim > Route 2 — Reimbursement (any hospital)]
+Use this at non-network hospitals, or where cashless was denied.
+
+[6] (source: network-hospitals)
+[Network Hospitals and Cashless Access > When cashless is denied]
+In cases 1 and 2 the insured may pay and file for reimbursement, where the same
+facts are assessed against the full document set rather than a pre-authorisation
+form. A material proportion of denied cashless requests are subsequently
+settled on reimbursement.
+
+[7] (source: network-hospitals)
+[Network Hospitals and Cashless Access > Network tiers]
+| Tier | Description | Cashless available |
+|---|---|---|
+| Preferred Provider Network (PPN) | Negotiated package rates for 42 common procedures | Yes, at package rates |
+| Standard network | Cashless at tariff | Yes |
+
+[8] (source: network-hospitals)
+[Network Hospitals and Cashless Access > PPN package rates]
+payable and is not eligible for proportionate treatment.
+
+================================================================================
+Q31 | trap_archived
+QUESTION: How long does Aurora take to settle a reimbursement claim?
+GOLD    : 15 working days from receipt of the last required document. (The archived 2024 document says 30 days.)
+ANSWER  : Aurora settles or rejects a complete reimbursement claim within 15 working days of receiving the last required document [1][2]. If Aurora raises a query, the clock restarts when the queried document is supplied [1].
+CONTEXT :
+[1] (source: claims-process)
+[Filing a Claim > Settlement timelines]
+Aurora settles or rejects a complete reimbursement claim within **15 working
+days** of receiving the last required document. If Aurora raises a query, the
+clock restarts when you supply the queried document. Where Aurora exceeds the
+regulatory settlement timeline, interest is payable at the bank rate plus 2%.
+
+[2] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Action | Aurora's deadline |
+|---|---|
+| Cashless pre-authorisation, emergency | 1 hour |
+| Cashless pre-authorisation, planned | 4 working hours |
+| Cashless final approval at discharge | 3 working hours |
+| Reimbursement settlement or rejection | 15 working days from last document |
+
+[3] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Aurora's response timelines]
+| Raising a query on a submitted claim | 7 working days from receipt |
+
+[4] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Submission]
+If the response to a query is not received within 45 days, Aurora closes the
+claim. A closed claim can be reopened once, within 6 months, on written request.
+
+[5] (source: group-corporate-plans)
+[Aurora Group Health — Corporate Plan Comparison > Claims]
+Group claims follow the same cashless and reimbursement routes as retail, but
+the reimbursement submission window is 60 days from discharge rather than 30,
+and the employer's HR desk is the first point of contact.
+
+[6] (source: claims-timelines)
+[Claim Notification and Submission Timelines > Submission]
+| Document set | Deadline |
+|---|---|
+| Main reimbursement claim | 30 days from date of discharge |
+| Pre-hospitalisation bills | With the main claim |
+| Post-hospitalisation bills | 15 days after the end of the post-hospitalisation window |
+| Response to an Aurora query | 45 days from the date of the query |
+
+[7] (source: hospital-cash-benefit)
+[Aurora Hospital Cash Benefit > Claim]
+Submit the discharge summary and the indemnity claim reference. No bills are
+required, because the benefit is not linked to expenditure. Settlement within
+7 working days of the indemnity claim being settled.
+
+[8] (source: claims-process)
+[Filing a Claim > Route 2 — Reimbursement (any hospital)]
+1. Notify Aurora within **48 hours** of an emergency admission, or **72 hours
+   before** a planned admission. Notification is by app, portal, or the 24×7
+   helpline. Failure to notify does not by itself void the claim but must be
+   explained.
+2. Pay the hospital yourself and collect the complete document set.
+
+================================================================================
+Q34 | aggregation
+QUESTION: Which plan should I buy if I want no room-rent sub-limit and cover for my parents-in-law?
+GOLD    : Gold (or Platinum). Gold removes room-rent and ICU sub-limits and is the lowest tier that permits dependent parents-in-law.
+ANSWER  : You can choose the Gold or Platinum plan, as both cover dependent parents-in-law [1]. Gold removes room-rent sub-limits entirely for single private rooms, while Platinum has no room-rent limit other than excluding suites [6][8]. However, regarding Gold, source [1] states that dependent parents-in-law are covered, whereas source [4] limits the floater to dependent parents, so the sources conflict on this point [1][4].
+CONTEXT :
+[1] (source: dependents-and-family-floater)
+[Dependents and the Family Floater > Who can be covered]
+| Relationship | Bronze | Silver | Gold | Platinum |
+|---|---|---|---|---|
+| Self and spouse | Yes | Yes | Yes | Yes |
+| Dependent children under 25 | Up to 2 | Up to 3 | Up to 4 | Up to 4 |
+| Dependent parents | No | Yes, at extra premium | Yes | Yes |
+| Dependent parents-in-law | No | No | Yes | Yes |
+
+[2] (source: topup-and-super-topup)
+[Aurora Top-Up and Super Top-Up Plans > Room rent]
+No room-rent sub-limit on any top-up variant. Proportionate deduction does not
+apply.
+
+[3] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > Choosing between plans]
+Bronze exists to satisfy a minimum-cover requirement at the lowest premium; its
+room-rent sub-limit means a private room in a metro tertiary hospital will
+usually trigger proportionate deduction. Silver is the recommended entry plan
+for a family. Gold removes room-rent and ICU sub-limits, which is the single
+
+[4] (source: plan-gold)
+[Aurora Gold — Plan Terms > Sum insured]
+₹10,00,000 or ₹25,00,000, individual or family floater. Family floater covers
+self, spouse, up to four dependent children under 25, and up to two dependent
+parents.
+
+[5] (source: plan-bronze)
+[Aurora Bronze — Plan Terms > Sum insured]
+₹3,00,000 or ₹5,00,000. Individual or family floater covering self, spouse and
+up to two dependent children under 25. Dependent parents cannot be added to a
+Bronze floater; they require a separate policy.
+
+[6] (source: plan-gold)
+[Aurora Gold — Plan Terms > Sub-limits]
+Gold removes the room-rent and ICU sub-limits entirely. You may occupy any
+single private room; only a suite or a deluxe room designated above the
+hospital's single-private-room category is excluded. Because there is no
+room-rent cap, **proportionate deduction never applies on Gold**.
+
+[7] (source: dependents-and-family-floater)
+[Dependents and the Family Floater > Who can be covered]
+| Siblings, grandparents | No | No | No | No |
+
+[8] (source: plans-overview)
+[Aurora Health Insurance — Plan Comparison > At a glance]
+| Feature | Bronze | Silver | Gold | Platinum |
+|---|---|---|---|---|
+| Sum insured options | ₹3L, ₹5L | ₹5L, ₹10L | ₹10L, ₹25L | ₹25L, ₹50L, ₹1Cr |
+| Room rent limit | 1% of SI per day | 2% of SI per day | Single private room | No limit (suite excluded) |
+| ICU limit | 2% of SI per day | 4% of SI per day | No limit | No limit |
+

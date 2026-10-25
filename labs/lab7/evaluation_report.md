@@ -1,6 +1,10 @@
 # Aurora Policy Assistant — Evaluation Report
 
+<<<<<<< HEAD
 Harsh Giri, MSAI, Plaksha University. AI in Practice I, Module 1, Lab 7.
+=======
+Anmol Rana, MSAI, Plaksha University. AI in Practice I, Module 1, Lab 7.
+>>>>>>> source/main
 
 ## 1. What it does
 
