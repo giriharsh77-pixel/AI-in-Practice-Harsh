@@ -152,241 +152,253 @@ def sweep_baseline() -> None:
 
 
 def sweep_chunking() -> None:
-    """A1: all four strategies at size=800.
-    A2: the winner at sizes 400 / 800 / 1600.
+    """TODO A1-A3.
+
+    A1: all four strategies at size=800.
+    
+    A2: the winner at sizes 400 / 800 / 1600. Plot or tabulate the curve.
     A3: markdown WITH and WITHOUT the '[heading > path]' prefix.
+        (Strip it with a list comprehension over the chunks -- do not modify
+         aip/chunking.py; other labs depend on it.)
+
+    Report chunk count and index build time alongside quality. A configuration
+    that is 1 point better and takes 4x as long to build is a real trade-off.
     """
-    corpus = load_corpus()
-    questions = load_questions()
 
-    # --- A1: All four strategies at size 800 ---
-    print("=== A1: Strategies at size 800 ===")
-    strategies = ["fixed", "sliding", "recursive", "markdown"]
-    a1_results = {}
+    corpus, questions = load_corpus(), load_questions()
+    results = {}
 
-    for strat in strategies:
-        t0 = time.perf_counter()
-        chunks = build_chunks(corpus, strategy=strat, size=800)
-        retriever = DenseRetriever(chunks)
-        build_time = time.perf_counter() - t0
+    for strategy in STRATEGIES:
+        chunks = build_chunks(corpus, strategy, 800)
+        r = DenseRetriever(chunks)
+        m = evaluate(r, questions)
+        m["chunk_count"] = len(chunks)
+        results[f"{strategy}-800"] = m
+    print(table(results))
+    for name, m in results.items():
+        if "_chunk_count" in m:
+            print(f"{name}: {m['_chunk_count']} chunks")
 
-        metrics = evaluate(retriever, questions)
-        metrics["chunks"] = len(chunks)
-        metrics["build_s"] = build_time
-        a1_results[f"{strat}-800"] = metrics
 
-    cols = ("hit_rate@1", "recall@5", "mrr", "ndcg@10", "chunks", "build_s")
-    print(table(a1_results, cols=cols))
-    print()
+    winner = "markdown"  
+    for size in (400, 800, 1600):
+        chunks = build_chunks(corpus, winner, size)
+        r = DenseRetriever(chunks)
+        m = evaluate(r, questions)
+        results[f"{winner}-{size}"] = m
+    print(table({k: v for k, v in results.items() if winner in k}))
 
-    # --- A2: Winner across sizes {400, 800, 1600} ---
-    print("=== A2: Size sweep for winner (markdown) ===")
-    sizes = [400, 800, 1600]
-    a2_results = {}
 
-    for sz in sizes:
-        t0 = time.perf_counter()
-        chunks = build_chunks(corpus, strategy="markdown", size=sz)
-        retriever = DenseRetriever(chunks)
-        build_time = time.perf_counter() - t0
+    # A3: prefix ablation
+    with_prefix = build_chunks(corpus, "markdown", 400)
+    without_prefix = [
+        Chunk(c.text.split("]\n", 1)[-1] if c.text.startswith("[") else c.text,
+              c.doc_id, c.chunk_id, c.meta)
+        for c in with_prefix
+    ]
+    r_with = DenseRetriever(with_prefix)
+    r_without = DenseRetriever(without_prefix)
+    m_with = evaluate(r_with, questions)
+    m_without = evaluate(r_without, questions)
+    print(table({"markdown-400-with-prefix": m_with,
+                 "markdown-400-without-prefix": m_without}))
 
-        metrics = evaluate(retriever, questions)
-        metrics["chunks"] = len(chunks)
-        metrics["build_s"] = build_time
-        a2_results[f"markdown-{sz}"] = metrics
 
-    print(table(a2_results, cols=cols))
-    print()
-
-# --- A3: Heading-path prefix ablation ---
-    print("=== A3: Markdown heading prefix ablation ===")
-    
-    # 1. With prefix (default markdown_chunks behavior)
-    chunks_with = build_chunks(corpus, strategy="markdown", size=800)
-    retriever_with = DenseRetriever(chunks_with)
-    m_with = evaluate(retriever_with, questions)
-
-    # 2. Without prefix: strip the leading '[heading > path]' prefix
-    chunks_without = []
-    for c in chunks_with:
-        text = c.text
-        if text.startswith("[") and "]" in text:
-            text = text.split("]", 1)[1].lstrip()
-        chunks_without.append(
-            Chunk(
-                chunk_id=c.chunk_id,
-                text=text,
-                doc_id=c.doc_id,
-                meta=c.meta,
-            )
-        )
-
-    retriever_without = DenseRetriever(chunks_without)
-    m_without = evaluate(retriever_without, questions)
-
-    a3_results = {
-        "markdown-800 WITH prefix": m_with,
-        "markdown-800 WITHOUT prefix": m_without,
-    }
-    
-    a3_cols = ("hit_rate@1", "hit_rate@5", "recall@5", "mrr", "ndcg@10")
-    print(table(a3_results, cols=a3_cols))
-
-    # --- A3: Heading-path prefix ablation ---
-    # print("=== A3: Markdown heading prefix ablation ===")
-    
-    # # 1. With prefix (default markdown_chunks behavior)
-    # chunks_with = build_chunks(corpus, strategy="markdown", size=800)
-    # retriever_with = DenseRetriever(chunks_with)
-    # m_with = evaluate(retriever_with, questions)
-
-    # # 2. Without prefix: strip the leading '[heading > path]' prefix
-    # # Do NOT modify aip/chunking.py; use a list comprehension on the chunks.
-    # chunks_without = []
-    # for c in chunks_with:
-    #     text = c.text
-    #     if text.startswith("[") and "]" in text:
-    #         text = text.split("]", 1)[1].lstrip()
-    #     chunks_without.append(Chunk(text=text, doc_id=c.doc_id, meta=c.meta))
-
-    # retriever_without = DenseRetriever(chunks_without)
-    # m_without = evaluate(retriever_without, questions)
-
-    # a3_results = {
-    #     "markdown-800 WITH prefix": m_with,
-    #     "markdown-800 WITHOUT prefix": m_without,
-    # }
-    
-    # a3_cols = ("hit_rate@1", "hit_rate@5", "recall@5", "mrr", "ndcg@10")
-    # print(table(a3_results, cols=a3_cols))
+    #raise NotImplementedError
 
 
 def sweep_retrieval() -> None:
-    """B1-B4: retriever type, RRF k, and fusion weights."""
-    corpus = load_corpus()
-    questions = load_questions()
-    chunks = build_chunks(corpus, "markdown", 800)
+    """TODO B1-B4.
+
+    B1: dense / bm25 / hybrid on your best chunking.
+    B2: print kind_table(m, col='mrr') for each, and pull out Q44 and Q41
+        individually from metrics['_per_question_mrr'].
+
+        USE MRR, NOT hit_rate@5. Every retriever here scores 0.93-0.98 on
+        hit_rate@5, so it is saturated and shows you nothing -- which is why
+        kind_table() and metrics['_per_question'] both default to it. That
+        default is the trap, and noticing it is part of the lab.
+
+    B3: RRF k in {10, 30, 60, 100} -- HybridRetriever(..., rrf_k=k).
+    B4: unequal fusion weights -- HybridRetriever(..., weights=[2.0, 1.0]).
+    """
+    corpus, questions = load_corpus(), load_questions()
+    chunks = build_chunks(corpus, "markdown", 400)  # your Part A winner
 
     dense = DenseRetriever(chunks)
     bm25 = Bm25Retriever(chunks)
     hybrid = HybridRetriever([dense, bm25])
 
-    # B1: dense / bm25 / hybrid
-    print("=== B1: Retriever comparison (mrr) ===")
-    results = {}
-    for name, r in [("dense", dense), ("bm25", bm25), ("hybrid", hybrid)]:
-        results[name] = evaluate(r, questions)
+    results = {
+        "dense": evaluate(dense, questions),
+        "bm25": evaluate(bm25, questions),
+        "hybrid": evaluate(hybrid, questions),
+    }
     print(table(results))
     print()
 
-    # B2: kind breakdown + Q44 and Q41
-    print("=== B2: Per-kind MRR breakdown ===")
+    # B2: per-kind breakdown, using MRR not hit_rate@5 (hit_rate@5 is saturated)
     for name, m in results.items():
-        print(f"\n--- {name} ---")
+        print(f"--- {name} ---")
         print(kind_table(m, col="mrr"))
-        q44 = m["_per_question_mrr"].get("Q44", 0)
-        q41 = m["_per_question_mrr"].get("Q41", 0)
-        print(f"  Q44 mrr={q44:.4f}  Q41 mrr={q41:.4f}")
+        print()
+
+    # B2 cont'd: pull out Q44 (exact identifier -> BM25's turf)
+    # and Q41 (paraphrase, zero lexical overlap -> dense's turf) individually
+    for name, m in results.items():
+        q44 = m["_per_question_mrr"].get("Q44")
+        q41 = m["_per_question_mrr"].get("Q41")
+        print(f"{name}: Q44 mrr={q44}  Q41 mrr={q41}")
+
 
     # B3: RRF k sweep
-    print("\n=== B3: RRF k sweep ===")
-    rrf_results = {}
-    for k_val in [10, 30, 60, 100]:
-        h = HybridRetriever([dense, bm25], rrf_k=k_val)
-        rrf_results[f"rrf_k={k_val}"] = evaluate(h, questions)
-    print(table(rrf_results))
+    for k in (10, 30, 60, 100):
+        h = HybridRetriever([dense, bm25], rrf_k=k)
+        m = evaluate(h, questions)
+        results[f"hybrid-k{k}"] = m
+    print(table({k2: v for k2, v in results.items() if k2.startswith("hybrid-k")}))
 
-    # B4: unequal fusion weights
-    print("\n=== B4: Fusion weights ===")
-    wt_results = {}
-    for wts, label in [([1.0, 1.0], "1:1"), ([2.0, 1.0], "2:1 dense"), ([1.0, 2.0], "1:2 bm25")]:
-        h = HybridRetriever([dense, bm25], weights=wts)
-        wt_results[label] = evaluate(h, questions)
-    print(table(wt_results))
+    # B4: unequal weights, favoring the stronger retriever (dense)
+    h_weighted = HybridRetriever([dense, bm25], weights=[2.0, 1.0])
+    results["hybrid-weighted-2-1"] = evaluate(h_weighted, questions)
+    print(table({"hybrid": results["hybrid"],
+                 "hybrid-weighted-2-1": results["hybrid-weighted-2-1"]}))
+    #raise NotImplementedError
 
 
 def sweep_rerank() -> None:
-    """C1-C4: cross-encoder vs LLM reranker."""
-    from aip.retrieval import CrossEncoderReranker, LLMReranker
+    """TODO C1-C4.
 
-    corpus = load_corpus()
-    questions = load_questions()
-    chunks = build_chunks(corpus, "markdown", 800)
+    Retrieve k=30, rerank to 5: evaluate(r, questions, k=30, reranker=rr,
+    final_k=5).
+
+    C1: CrossEncoderReranker. First run downloads ~90 MB.
+    C2: LLMReranker -- report cost as well as latency.
+    C3: the decision table, and TWO different deployment answers
+        (interactive search box vs overnight batch). They should differ.
+    C4: find a query reranking made worse, using
+        metrics['_per_question_mrr'] before and after.
+    """
+    
+    corpus, questions = load_corpus(), load_questions()
+    chunks = build_chunks(corpus, "markdown", 400)
     dense = DenseRetriever(chunks)
 
-    # Baseline without reranking
-    m_base = evaluate(dense, questions, k=30, final_k=5)
+    from aip.retrieval import CrossEncoderReranker, LLMReranker
 
-    # C1: CrossEncoderReranker
-    print("=== C1: CrossEncoderReranker ===")
+    # C1: cross-encoder. First call downloads ~90MB, one-time.
     ce = CrossEncoderReranker()
     m_ce = evaluate(dense, questions, k=30, reranker=ce, final_k=5)
 
-    # C2: LLMReranker
-    print("=== C2: LLMReranker ===")
+    # C2: LLM reranker — costs money per query, unlike C1
     llm_rr = LLMReranker()
     m_llm = evaluate(dense, questions, k=30, reranker=llm_rr, final_k=5)
 
-    results = {"no-rerank": m_base, "cross-encoder": m_ce, "llm-reranker": m_llm}
-    cols = ("hit_rate@1", "hit_rate@5", "recall@5", "mrr", "ndcg@10", "latency_p95_ms")
-    print(table(results, cols=cols))
+    m_base = evaluate(dense, questions)  # no rerank, k=10 default — your baseline
 
-    # C3: decision table
-    print("\n=== C3: Decision table ===")
-    print(f"{'':20s} {'cross-encoder':>15} {'llm-reranker':>15}")
-    print(f"{'mrr':20s} {m_ce['mrr']:>15.4f} {m_llm['mrr']:>15.4f}")
-    print(f"{'p95 latency ms':20s} {m_ce['latency_p95_ms']:>15.1f} {m_llm['latency_p95_ms']:>15.1f}")
-    print("Interactive search: cross-encoder (fast, good quality)")
-    print("Overnight batch:    llm-reranker  (higher quality, cost OK at scale)")
+    # find a question the cross-encoder made worse
+    print("\nquestions where cross-encoder hurt MRR:")
+    for qid, base_mrr in m_base["_per_question_mrr"].items():
+        ce_mrr = m_ce["_per_question_mrr"].get(qid)
+        if ce_mrr is not None and ce_mrr < base_mrr:
+            print(f"  {qid}: {base_mrr} -> {ce_mrr}")
 
-    # C4: query reranking made worse
-    print("\n=== C4: Queries where reranking hurt ===")
-    for qid in sorted(m_base["_per_question_mrr"]):
-        before = m_base["_per_question_mrr"][qid]
-        after = m_ce["_per_question_mrr"][qid]
-        if after < before:
-            print(f"  {qid}: mrr {before:.4f} -> {after:.4f} (cross-encoder hurt)")
+    print(table({"dense-no-rerank": m_base,
+                 "dense+cross-encoder": m_ce,
+                 "dense+llm-rerank": m_llm}))
+
+
+    
+    #raise NotImplementedError
+
+
+def inspect_rerank_failure(question_id: str) -> None:
+    corpus, questions = load_corpus(), load_questions()
+    chunks = build_chunks(corpus, "markdown", 400)
+    dense = DenseRetriever(chunks)
+    from aip.retrieval import CrossEncoderReranker
+    ce = CrossEncoderReranker()
+
+    q = next(x for x in questions if x["id"] == question_id)
+    before = dense.search(q["question"], k=5)
+    after = ce.rerank(q["question"], dense.search(q["question"], k=30), k=5)
+
+    print("Q:", q["question"])
+    print("gold:", q["relevant_docs"])
+    print("\nBEFORE (dense only):")
+    for h in before:
+        print(f"  [{h.doc_id}] score={h.score:.3f}  {h.text[:100]}")
+    print("\nAFTER (cross-encoder reranked):")
+    for h in after:
+        print(f"  [{h.doc_id}] score={h.score:.3f}  {h.text[:100]}")
 
 
 def sweep_index() -> None:
-    """D1-D3: ChromaRetriever vs DenseRetriever, metadata filtering."""
+    """TODO D1-D3.
+
+    D1/D2: ChromaRetriever vs DenseRetriever -- recall gap and latency.
+    D3: pass status metadata into the chunks and filter at query time.
+
+        Set chunk.meta['status'] = 'archived' if 'ARCHIVED' in doc_id else 'current'
+        then ChromaRetriever.search(..., where={"status": "current"}).
+
+        Report hit_rate@1 on Q29/Q30/Q31 before and after (hit_rate@1, not
+        @5 -- @5 is saturated here and will hide the whole effect).
+    """
+    
+    corpus, questions = load_corpus(), load_questions()
+    chunks = build_chunks(corpus, "markdown", 400)  # your Part A winner
+
     from aip.retrieval import ChromaRetriever
 
-    corpus = load_corpus()
-    questions = load_questions()
-    chunks = build_chunks(corpus, "markdown", 800)
-
-    # D1/D2: DenseRetriever vs ChromaRetriever
-    print("=== D1/D2: Dense vs Chroma ===")
+    # D1/D2: exact (DenseRetriever) vs ANN (ChromaRetriever)
     dense = DenseRetriever(chunks)
-    chroma = ChromaRetriever(chunks, collection="lab3_sweep", reset=True)
+    # reset=True is important: ChromaRetriever persists to disk at .chroma/
+    # by default. Without reset=True, a stale index from an earlier run
+    # (different chunking) silently gets reused -- same "cached index" trap
+    # as Part A's checkpoint warning.
+    chroma = ChromaRetriever(chunks, path=".chroma", collection="lab3", reset=True)
 
     m_dense = evaluate(dense, questions)
     m_chroma = evaluate(chroma, questions)
-    results = {"dense (exact)": m_dense, "chroma (HNSW)": m_chroma}
-    cols = ("hit_rate@1", "recall@5", "mrr", "ndcg@10", "latency_p95_ms")
-    print(table(results, cols=cols))
+    print(table({"dense-exact": m_dense, "chroma-hnsw": m_chroma}))
+    print()
+    print(f"dense p95: {m_dense['latency_p95_ms']:.2f} ms")
+    print(f"chroma p95: {m_chroma['latency_p95_ms']:.2f} ms")
+    print("-> at this scale (few hundred chunks), exact should be as good "
+          "or faster than HNSW. Run scripts/expand_corpus.py --docs 4000 "
+          "and re-test to find the crossover (see README D2).")
+    print()
 
-    # D3: metadata filtering
-    print("\n=== D3: Metadata filtering (status=current) ===")
+    # D3: the archived-doc trap. Q29/Q30/Q31 have a correct current answer
+    # and a wrong answer sitting in an ARCHIVED doc that competes lexically.
     for c in chunks:
         c.meta["status"] = "archived" if "ARCHIVED" in c.doc_id else "current"
-    chroma_meta = ChromaRetriever(chunks, collection="lab3_meta", reset=True)
 
-    # Evaluate Q29, Q30, Q31 before and after filtering
-    target_qs = [q for q in questions if q["id"] in ("Q29", "Q30", "Q31")]
-    print(f"\nQ29/Q30/Q31 hit_rate@1:")
-    for label, where in [("unfiltered", None), ("status=current", {"status": "current"})]:
-        hits = {}
-        for q in target_qs:
-            h = chroma_meta.search(q["question"], k=10, where=where)
-            seen = []
-            for hit in h:
-                if hit.doc_id not in seen:
-                    seen.append(hit.doc_id)
-            m = retrieval_metrics(seen, q["relevant_docs"], ks=(1,))
-            hits[q["id"]] = m["hit_rate@1"]
-        print(f"  {label:20s}  Q29={hits.get('Q29',0):.0f}  Q30={hits.get('Q30',0):.0f}  Q31={hits.get('Q31',0):.0f}")
+    chroma_meta = ChromaRetriever(chunks, path=".chroma", collection="lab3-meta",
+                                  reset=True)
+    trap_ids = {"Q29", "Q30", "Q31"}
+    trap_qs = [q for q in questions if q["id"] in trap_ids]
+
+    def hit_at_1(retriever, qs, where=None) -> dict[str, bool]:
+        out = {}
+        for q in qs:
+            hits = retriever.search(q["question"], k=5, where=where) \
+                   if where else retriever.search(q["question"], k=5)
+            out[q["id"]] = bool(hits) and hits[0].doc_id in q["relevant_docs"]
+        return out
+
+    before = hit_at_1(chroma_meta, trap_qs)
+    after = hit_at_1(chroma_meta, trap_qs, where={"status": "current"})
+
+    print("D3 -- hit_rate@1 on the archived-doc trap questions:")
+    print(f"{'':6}{'before filter':>16}{'after filter':>16}")
+    for qid in sorted(trap_ids):
+        print(f"{qid:6}{str(before.get(qid, '-')):>16}{str(after.get(qid, '-')):>16}")
+    b_rate = sum(before.values()) / len(before)
+    a_rate = sum(after.values()) / len(after)
+    print(f"\noverall: {b_rate:.3f} -> {a_rate:.3f}")
+    #raise NotImplementedError
 
 
 SWEEPS = {

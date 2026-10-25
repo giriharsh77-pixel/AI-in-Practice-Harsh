@@ -1,10 +1,6 @@
 # Lab 7 Concept Note - Nuances of shipping a RAG System
 
-<<<<<<< HEAD
-Harsh Giri, MSAI, Plaksha University. 
-=======
 Anmol Rana, Roll # 04, MSAI, Plaksha University. 
->>>>>>> source/main
 
 AI in Practice I
 

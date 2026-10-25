@@ -154,8 +154,4 @@ With all five layers on, the worst outcome an injection can achieve is a **confi
 **What remains must be enforced in code or process:**
 - Content poisoning needs control over who can publish documents, with precedence set by metadata (as in Lab 3's `status: current` filter) rather than "this supersedes" claims inside text
 - Policy lookups need the policy number bound to the logged-in customer
-<<<<<<< HEAD
 - Refunds need a per-policy ledger so a duplicate can't be paid twice
-=======
-- Refunds need a per-policy ledger so a duplicate can't be paid twice
->>>>>>> source/main
