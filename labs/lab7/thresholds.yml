@@ -3,6 +3,7 @@
 # never fires. Aim for roughly one standard error of headroom.
 #
 # Note that cost and latency have gates too. They regress silently otherwise.
+<<<<<<< HEAD
 correctness:        {min: 0.80}    
 faithfulness:       {min: 0.90}    
 citation_validity:  {min: 0.98}    
@@ -11,3 +12,13 @@ refusal_precision:  {min: 0.70}
 hit_rate_at_5:      {min: 0.97}    
 cost_per_query_usd: {max: 0.0031}  
 p95_latency_ms:     {max: 8500}    
+=======
+correctness:        {min: 0.70}    
+faithfulness:       {min: 0.90}    
+citation_validity:  {min: 0.98}    
+refusal_recall:     {min: 0.95}    
+refusal_precision:  {min: 0.50}    
+hit_rate_at_5:      {min: 0.97}    
+cost_per_query_usd: {max: 0.0039}  
+p95_latency_ms:     {max: 28500}    
+>>>>>>> source/main
